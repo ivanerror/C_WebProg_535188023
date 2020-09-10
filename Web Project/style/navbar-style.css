@@ -6,6 +6,10 @@ body {
   padding: 0;
 }
 
+.body-padding {
+  padding: 8em;
+}
+
 li,
 a,
 button {
@@ -14,6 +18,9 @@ button {
   font-size: 16px;
   color: #edf0f1;
   text-decoration: none;
+}
+ul {
+  margin: auto;
 }
 
 header {
@@ -42,6 +49,7 @@ header {
 
 .nav_links li a {
   transition: all 0.3s ease 0s;
+  text-decoration: none;
 }
 
 .nav_links li a:hover {
@@ -70,7 +78,7 @@ body {
 .search-box {
   margin-right: auto;
   background: #393e46;
-  height: 40px;
+  /* height: 40px; */
   border-radius: 40px;
   padding: 5px;
   transition: 0.4s;
