@@ -16,9 +16,14 @@
       integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"
+      integrity="sha512-u1L7Dp3BKUP3gijgSRoMTNxmDl/5o+XOHupwwa7jsI1rMzHrllSLKsGOfqjYl8vrEG+8ghnRPNA/SCltmJCZpQ=="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body style="display: none">
-    <div class="rgb">
+    <div class="tilt">
       <div class="profile-card">
         <div class="card-header">
           <div class="pic">
@@ -58,6 +63,13 @@
   <script>
     $(document).ready(function () {
       $("body").show();
+      $(".tilt").tilt({
+        maxTilt: 5,
+        glare: true,
+        maxGlare: 0.5,
+        speed: 1000,
+        transition: "cubic-bezier(.86,.27,.91,.65)",
+      });
     });
   </script>
 </html>
