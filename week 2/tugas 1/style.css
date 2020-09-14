@@ -19,6 +19,8 @@ body {
 }
 
 .tilt {
+  display: flex;
+  margin: 20px;
   border-radius: 20px;
   animation: 1s ease 0s 1 slideIn;
   box-shadow: 6px 6px 30px -8px rgba(0, 0, 0, 0.5);
