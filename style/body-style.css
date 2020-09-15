@@ -7,16 +7,12 @@
 .body_sec {
     margin-left: 15%;
     margin-right: 15%;
-}
-
-body{
     margin-top: 3rem;
-    color: #555;
-    background: #222;
     overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 1px;
 }
+
 h1{
     font-size: 2.2em;
     text-transform: uppercase;
