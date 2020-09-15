@@ -164,3 +164,6 @@ body {
   background-position: center center;
 }
 
+.img-fluid {
+  width: 100%;
+}
