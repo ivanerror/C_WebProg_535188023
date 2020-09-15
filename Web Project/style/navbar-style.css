@@ -151,3 +151,15 @@ body {
   z-index: 9999;
   width: 100%;
 }
+
+.banner-area .header {
+  color: rgb(34, 34, 34);
+}
+
+.banner-area {
+  height: 75vh;
+  background-image: url("../img/bg.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}
