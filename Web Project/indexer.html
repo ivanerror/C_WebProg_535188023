@@ -16,42 +16,46 @@
   .container {
     position: relative;
     display: inline-block;
+    width:110%;
+    height:110%;
     object-fit: cover;
   }
 
-  .overlay { 
-    position: absolute; 
-    transition: all 0.3s ease; 
-    opacity: 0; 
-    background-color: grey;
-  } 
- 
-  .container:hover .overlay { 
-    opacity: 1; 
-  }
+  .gallery {
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      column-count: 3;
+      -webkit-column-width: 33%;
+      -moz-column-width: 33%;
+      column-width: 33%;
+    }
 
-  .texts {
-    color :white;
-    font-family: sans-serif;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 12px;
-  }
+    .gallery .pics {
+      -webkit-transition: all 350ms ease;
+      transition: all 350ms ease;
+    }
 
-  .overlayleft {
-    height: 100%;
-    width :0;
-    top: 0;
-    left: 0;
-  }
- 
-  .container:hover .overlayleft{
-    width: 100%;
+    @media (max-width: 450px) {
+      .gallery {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+        -webkit-column-width: 100%;
+        -moz-column-width: 100%;
+        column-width: 100%;
+      }
+    }
 
-  }
+    @media (max-width: 400px) {
+      .btn.filter {
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
+      }
+    }
   
-    </style>
+  
+
+  </style>
 
     <title>Hello, world!</title>
 
@@ -76,36 +80,64 @@
       </header>
     </div>
 
+    <div class="row">
+      <!-- Grid column -->
+      <div class="col-md-12 d-flex justify-content-center mb-5">
 
-    <div class="container-fluid body-padding">
-        <div class="row">
-          <div class="card-columns">
-            <div class="card card-pin">
-              <div class = "container">
-                <img class="card-img" src="https://images.unsplash.com/photo-1489743342057-3448cc7c3bb9?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=6d284a2efbca5f89528546307f7e7b87&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Card image">
-                  <div class = "overlay overlayLeft">
-                    <div class = "texts">Cool Ttile</div>
-                  </div>
-              </div>
-              <br></br>
-              <img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=60" alt = "Card image">
-            </div>
-            <div class = "card card-pin">
-              <img class="card-img" src="https://images.unsplash.com/photo-1488353816557-87cd574cea04?ixlib=rb-0.3.5&s=06371203b2e3ad3e241c45f4e149a1b3&auto=format&fit=crop&w=334&q=80" alt = "Card image">
-              <br></br>
-              <img class="card-img" src="https://images.unsplash.com/photo-1518450757707-d21c8c53c8df?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c88b5f311958f841525fdb01ab3b5deb&auto=format&fit=crop&w=500&q=60" alt = "Card image">
-              <br></br>
-              <img class="card-img" src="https://images.unsplash.com/photo-1483190656465-2c49e54d29f3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7c4d831daffc28f6ce144ae9e44072e2&auto=format&fit=crop&w=500&q=60" alt = "Card image">
-            </div>
-            <div class = "card card-pin">
-              <img class="card-img" src="https://images.unsplash.com/photo-1513028179155-324cfec2566c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=32ce1df4016dadc177d6fce1b2df2429&auto=format&fit=crop&w=350&q=80" alt = "Card image">
-              <br></br>
-              <img class="card-img" src="https://images.unsplash.com/photo-1516601255109-506725109807?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ce4f3db9818f60686e8e9b62d4920ce5&auto=format&fit=crop&w=500&q=60" alt = "Card image">
-              <br></br>
-              <img class="card-img" src="https://images.unsplash.com/photo-1509233631037-deb7efd36207?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=75a5d784cdfc8f5ced8a6fe26c6d921e&auto=format&fit=crop&w=500&q=60" alt = "Card image">
-              <br></br>
-          </div>
-        </div>
+        <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="all">All</button>
+        <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="1">Mountains</button>
+        <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="2">Sea</button>
+  
+      </div>
+      <!-- Grid column -->
+  
+    </div>
+    <!-- Grid row -->
+  
+    <!-- Grid row -->
+    <div class="gallery" id="gallery">
+  
+      <!-- Grid column -->
+      <div class="mb-3 pics animation all 2">
+        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"
+          alt="Card image cap">
+      </div>
+      <!-- Grid column -->
+  
+      <!-- Grid column -->
+      <div class="mb-3 pics animation all 1">
+        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg" alt="Card image cap">
+      </div>
+      <!-- Grid column -->
+  
+      <!-- Grid column -->
+      <div class="mb-3 pics animation all 1">
+        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" alt="Card image cap">
+      </div>
+      <!-- Grid column -->
+  
+      <!-- Grid column -->
+      <div class="mb-3 pics animation all 2">
+        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
+          alt="Card image cap">
+      </div>
+      <!-- Grid column -->
+  
+      <!-- Grid column -->
+      <div class="mb-3 pics animation all 2">
+        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
+          alt="Card image cap">
+      </div>
+      <!-- Grid column -->
+  
+      <!-- Grid column -->
+      <div class="mb-3 pics animation all 1">
+        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg" alt="Card image cap">
+      </div>
+      <!-- Grid column -->
+  
+    </div>
+    <!-- Grid row -->
 
 
     <script
