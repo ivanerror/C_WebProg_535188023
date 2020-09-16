@@ -62,6 +62,12 @@
   opacity: 1;
 }
 
+.search-box-hover:hover > .search-txt-hover {
+  width: 600px;
+  padding: 0 10px;
+  color: black;
+}
+
 .search-box-hover:hover {
   background: white;
 }
