@@ -1,11 +1,10 @@
 $(window).scroll(function () {
-  $(".navbar").toggleClass("scrolled", $(this).scrollTop() > 300);
-  $(".navbar a").toggleClass("scrolled", $(this).scrollTop() > 300);
-
-  if ($(this).scrollTop() < 300) {
-    $(".navbar .navbar-brand img").attr("src", "accel-logo.png");
+  if ($(window).scrollTop() >= 300) {
+    $("#navbar").css("background", "#222831");
+    $("#con-search").show(2000);
   } else {
-    $(".navbar .navbar-brand img").attr("src", "accel-logo-scrolled.png");
+    $("#navbar").css("background", "transparent");
+    $("#con-search").hide();
   }
 });
 
