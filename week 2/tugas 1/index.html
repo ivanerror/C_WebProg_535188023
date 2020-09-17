@@ -1,0 +1,75 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"
+      integrity="sha512-u1L7Dp3BKUP3gijgSRoMTNxmDl/5o+XOHupwwa7jsI1rMzHrllSLKsGOfqjYl8vrEG+8ghnRPNA/SCltmJCZpQ=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body style="display: none">
+    <div class="tilt">
+      <div class="profile-card">
+        <div class="card-header">
+          <div class="pic">
+            <img src="profil.jpg" alt="" />
+          </div>
+          <div class="name">Gabriel Ivan Setyaputra</div>
+          <div class="desc">Web Developer</div>
+          <div class="desc2">Jakarta | Indonesia</div>
+          <div class="desc2">Tarumanagara University</div>
+          <div class="sosmed">
+            <a href="https://www.facebook.com/ivansetyap/" target="_BLANK" class="fab fa-facebook f"></a>
+            <a href="https://www.instagram.com/ivansetya_p/" target="_BLANK" class="fab fa-instagram"></a>
+            <a href="mailto:gabriel.535180023@stu.untar.ac.id" target="_BLANK" class="fas fa-envelope-square"></a>
+            <a href="" class="fab fa-discord"></a>
+          </div>
+          <a href="" class="contact-btn">Contact Me</a>
+        </div>
+        <div class="card-footer">
+          <div class="numbers">
+            <div class="item">
+              <span>120</span>
+              Post
+            </div>
+            <div class="item">
+              <span>120</span>
+              Following
+            </div>
+            <div class="item">
+              <span>5000</span>
+              Follower
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    $(document).ready(function () {
+      $("body").show();
+      $(".tilt").tilt({
+        maxTilt: 6,
+        glare: true,
+        maxGlare: 0.5,
+        speed: 1000,
+        transition: "cubic-bezier(.86,.27,.91,.65)",
+      });
+    });
+  </script>
+</html>
