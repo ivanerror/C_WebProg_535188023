@@ -21,7 +21,7 @@ h1{
 .flip{
     position: relative;
     display: inline-block;
-    width: 400px;
+    width: 250px;
     margin-right: 2px;
     margin-bottom: 2em;
 }
@@ -34,7 +34,7 @@ h1{
     width: inherit;
     background-size: cover !important;
     background-position: center !important;
-    height: 210px;
+    height: 150px;
     background-color: #313131;
     padding: 2em 1em;
     border-radius: 10px;
