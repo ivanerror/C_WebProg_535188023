@@ -1,9 +1,11 @@
 $(window).scroll(function () {
   if ($(window).scrollTop() >= 300) {
     $("#navbar").css("background", "#222831");
+    $("#js-navbar-nav").removeClass("ml-auto");
     $("#con-search").show();
   } else {
     $("#navbar").css("background", "transparent");
+    $("#js-navbar-nav").addClass("ml-auto");
     $("#con-search").hide();
   }
 });
