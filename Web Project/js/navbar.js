@@ -1,7 +1,7 @@
 $(window).scroll(function () {
   if ($(window).scrollTop() >= 300) {
     $("#navbar").css("background", "#222831");
-    $("#con-search").show(2000);
+    $("#con-search").show();
   } else {
     $("#navbar").css("background", "transparent");
     $("#con-search").hide();
