@@ -1,0 +1,42 @@
+@font-face {
+  font-family: JosefinSans;
+  src: url(./font/JosefinSans-BoldItalic.ttf);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+
+body {
+  background: #29a19c;
+  color: white;
+}
+.logo {
+  cursor: pointer;
+  font-family: JosefinSans;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.navbar {
+  background: #222831;
+}
+
+.pdt {
+  padding-top: 200px;
+}
+
+.head h1 {
+  font-size: 80px;
+  font-weight: 600;
+  letter-spacing: -0.5;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+}
+
+.img img {
+  border-radius: 20px;
+  display: block;
+}
+
+.desc {
+  padding: 10%;
+}
