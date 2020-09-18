@@ -6,7 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 
 body {
-  background: #29a19c;
+  background: rgba(26, 28, 32);
   color: white;
   transition: 0.5s;
   overflow-x: hidden;
@@ -66,6 +66,10 @@ body {
   100% {
     background-position: left top;
   }
+}
+
+.team {
+  margin-top: 100px;
 }
 
 .team .pic img {
