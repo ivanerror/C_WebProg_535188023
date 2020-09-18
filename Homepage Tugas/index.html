@@ -13,12 +13,21 @@
       crossorigin="anonymous"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="style/style.css" />
 
     <title>InsFrame | HomePage</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top pl-4 pr-4">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top pl-4 pr-4" id="navbar">
       <a class="navbar-brand logo" href="#">InsFrame</a>
       <button
         class="navbar-toggler"
@@ -44,13 +53,13 @@
       </div>
     </nav>
 
-    <section class="head pdt">
+    <section class="head pdt" style="height: 100vh">
       <div class="container">
         <h1>Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
       </div>
     </section>
 
-    <section class="pic-desc pdt">
+    <section class="pic-desc pdt" data-aos="fade-right">
       <div class="container">
         <div>
           <div class="row">
@@ -79,7 +88,7 @@
       </div>
     </section>
 
-    <section class="pic-desc pdt">
+    <section class="pic-desc" data-aos="fade-left">
       <div class="container">
         <div>
           <div class="row">
@@ -108,8 +117,8 @@
       </div>
     </section>
 
-    <section class="carousel pdt">
-      <div class="container">
+    <section class="carousel pdt" data-aos="fade-up">
+      <div class="container-fluid">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -142,18 +151,217 @@
       </div>
     </section>
 
-    <section class="team pdt">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg3">
-            <div class="card" style="width: 18rem">
-              <img class="card-img-top" src="..." alt="Card image cap" />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+    <section class="team pdt" data-aos="fade-up">
+      <div class="container text-center">
+        <h1>Our Team</h1>
+        <div class="row justify-content-center">
+          <div class="col-lg-4 col-md-6">
+            <div class="card text-center tilt">
+              <div class="profile-card">
+                <div class="card-header">
+                  <div class="pic">
+                    <img src="img/profil.jpg" alt="" />
+                  </div>
+                  <div class="name">Gabriel Ivan Setyaputra</div>
+                  <div class="desc">Web Developer</div>
+                  <div class="desc2">Jakarta | Indonesia</div>
+                  <div class="desc2">Tarumanagara University</div>
+                  <div class="sosmed">
+                    <a href="https://www.facebook.com/ivansetyap/" target="_BLANK" class="fab fa-facebook f"></a>
+                    <a href="https://www.instagram.com/ivansetya_p/" target="_BLANK" class="fab fa-instagram"></a>
+                    <a
+                      href="mailto:gabriel.535180023@stu.untar.ac.id"
+                      target="_BLANK"
+                      class="fas fa-envelope-square"
+                    ></a>
+                    <a href="" class="fab fa-discord"></a>
+                  </div>
+                  <a href="" class="contact-btn">Contact Me</a>
+                </div>
+                <div class="card-footer">
+                  <div class="numbers">
+                    <div class="item">
+                      <span>120</span>
+                      Post
+                    </div>
+                    <div class="item">
+                      <span>120</span>
+                      Following
+                    </div>
+                    <div class="item">
+                      <span>5000</span>
+                      Follower
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card text-center tilt">
+              <div class="profile-card">
+                <div class="card-header">
+                  <div class="pic">
+                    <img src="img/profil.jpg" alt="" />
+                  </div>
+                  <div class="name">Gabriel Ivan Setyaputra</div>
+                  <div class="desc">Web Developer</div>
+                  <div class="desc2">Jakarta | Indonesia</div>
+                  <div class="desc2">Tarumanagara University</div>
+                  <div class="sosmed">
+                    <a href="https://www.facebook.com/ivansetyap/" target="_BLANK" class="fab fa-facebook f"></a>
+                    <a href="https://www.instagram.com/ivansetya_p/" target="_BLANK" class="fab fa-instagram"></a>
+                    <a
+                      href="mailto:gabriel.535180023@stu.untar.ac.id"
+                      target="_BLANK"
+                      class="fas fa-envelope-square"
+                    ></a>
+                    <a href="" class="fab fa-discord"></a>
+                  </div>
+                  <a href="" class="contact-btn">Contact Me</a>
+                </div>
+                <div class="card-footer">
+                  <div class="numbers">
+                    <div class="item">
+                      <span>120</span>
+                      Post
+                    </div>
+                    <div class="item">
+                      <span>120</span>
+                      Following
+                    </div>
+                    <div class="item">
+                      <span>5000</span>
+                      Follower
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card text-center tilt">
+              <div class="profile-card">
+                <div class="card-header">
+                  <div class="pic">
+                    <img src="img/profil.jpg" alt="" />
+                  </div>
+                  <div class="name">Gabriel Ivan Setyaputra</div>
+                  <div class="desc">Web Developer</div>
+                  <div class="desc2">Jakarta | Indonesia</div>
+                  <div class="desc2">Tarumanagara University</div>
+                  <div class="sosmed">
+                    <a href="https://www.facebook.com/ivansetyap/" target="_BLANK" class="fab fa-facebook f"></a>
+                    <a href="https://www.instagram.com/ivansetya_p/" target="_BLANK" class="fab fa-instagram"></a>
+                    <a
+                      href="mailto:gabriel.535180023@stu.untar.ac.id"
+                      target="_BLANK"
+                      class="fas fa-envelope-square"
+                    ></a>
+                    <a href="" class="fab fa-discord"></a>
+                  </div>
+                  <a href="" class="contact-btn">Contact Me</a>
+                </div>
+                <div class="card-footer">
+                  <div class="numbers">
+                    <div class="item">
+                      <span>120</span>
+                      Post
+                    </div>
+                    <div class="item">
+                      <span>120</span>
+                      Following
+                    </div>
+                    <div class="item">
+                      <span>5000</span>
+                      Follower
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card text-center tilt">
+              <div class="profile-card">
+                <div class="card-header">
+                  <div class="pic">
+                    <img src="img/profil.jpg" alt="" />
+                  </div>
+                  <div class="name">Gabriel Ivan Setyaputra</div>
+                  <div class="desc">Web Developer</div>
+                  <div class="desc2">Jakarta | Indonesia</div>
+                  <div class="desc2">Tarumanagara University</div>
+                  <div class="sosmed">
+                    <a href="https://www.facebook.com/ivansetyap/" target="_BLANK" class="fab fa-facebook f"></a>
+                    <a href="https://www.instagram.com/ivansetya_p/" target="_BLANK" class="fab fa-instagram"></a>
+                    <a
+                      href="mailto:gabriel.535180023@stu.untar.ac.id"
+                      target="_BLANK"
+                      class="fas fa-envelope-square"
+                    ></a>
+                    <a href="" class="fab fa-discord"></a>
+                  </div>
+                  <a href="" class="contact-btn">Contact Me</a>
+                </div>
+                <div class="card-footer">
+                  <div class="numbers">
+                    <div class="item">
+                      <span>120</span>
+                      Post
+                    </div>
+                    <div class="item">
+                      <span>120</span>
+                      Following
+                    </div>
+                    <div class="item">
+                      <span>5000</span>
+                      Follower
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card text-center tilt">
+              <div class="profile-card">
+                <div class="card-header">
+                  <div class="pic">
+                    <img src="img/profil.jpg" alt="" />
+                  </div>
+                  <div class="name">Gabriel Ivan Setyaputra</div>
+                  <div class="desc">Web Developer</div>
+                  <div class="desc2">Jakarta | Indonesia</div>
+                  <div class="desc2">Tarumanagara University</div>
+                  <div class="sosmed">
+                    <a href="https://www.facebook.com/ivansetyap/" target="_BLANK" class="fab fa-facebook f"></a>
+                    <a href="https://www.instagram.com/ivansetya_p/" target="_BLANK" class="fab fa-instagram"></a>
+                    <a
+                      href="mailto:gabriel.535180023@stu.untar.ac.id"
+                      target="_BLANK"
+                      class="fas fa-envelope-square"
+                    ></a>
+                    <a href="" class="fab fa-discord"></a>
+                  </div>
+                  <a href="" class="contact-btn">Contact Me</a>
+                </div>
+                <div class="card-footer">
+                  <div class="numbers">
+                    <div class="item">
+                      <span>120</span>
+                      Post
+                    </div>
+                    <div class="item">
+                      <span>120</span>
+                      Following
+                    </div>
+                    <div class="item">
+                      <span>5000</span>
+                      Follower
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -178,5 +386,14 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"
+      integrity="sha512-u1L7Dp3BKUP3gijgSRoMTNxmDl/5o+XOHupwwa7jsI1rMzHrllSLKsGOfqjYl8vrEG+8ghnRPNA/SCltmJCZpQ=="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
