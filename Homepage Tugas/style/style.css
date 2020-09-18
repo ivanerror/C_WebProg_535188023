@@ -9,6 +9,7 @@ body {
   background: #29a19c;
   color: white;
   transition: 0.5s;
+  overflow-x: hidden;
 }
 .logo {
   cursor: pointer;
