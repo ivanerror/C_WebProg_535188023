@@ -4,13 +4,11 @@
     box-sizing: border-box;
     font-weight: normal;
 }
-.body_sec {
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 3rem;
-    overflow-x: hidden;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 1px;
+
+.img_category{
+    height: 10rem;
+    width: auto;
+    object-fit: cover;
 }
 
 h1{
