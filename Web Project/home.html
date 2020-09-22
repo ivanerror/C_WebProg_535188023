@@ -36,12 +36,15 @@
   <link rel="stylesheet" href="style/navbar-style.css" />
   <link rel="stylesheet" href="style/search-box-hover.css" />
   <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="style/categories.css" />
   <script src="js/navbar.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
-      <a class="navbar-brand logo" href="#">InsFrame</a>
-
+      <div class="iflogo">
+        <a href="#"><img src="img/iflogo.png"></a>
+      </div>
+      <a class="navbar-brand logo" href="#">insframe</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -80,10 +83,10 @@
     <div class="container">
       <div class="row">
         <!-- Grid column -->
-        <div class="col-md-12 p-2 d-flex justify-content-center mb-5">
-          <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="all">All</button>
-          <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="1">Mountains</button>
-          <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="2">Sea</button>
+        <div class="col-md-12 p-2 d-flex justify-content-center mb-5 btnbtn">
+          <button type="button" class="btn btn-outline-black waves-effect filter button-underline" data-rel="all">All</button>
+          <button type="button" class="btn btn-outline-black waves-effect filter button-underline" data-rel="1">Mountains</button>
+          <button type="button" class="btn btn-outline-black waves-effect filter button-underline" data-rel="2">Sea</button>
         </div>
         <!-- Grid column -->
       </div>
