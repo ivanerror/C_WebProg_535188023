@@ -1,0 +1,9 @@
+.nav-item {
+  padding-left: 15px;
+}
+
+@media (min-width: 1400px) {
+  .container-fluid {
+    max-width: 1300px;
+  }
+}

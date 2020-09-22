@@ -1,0 +1,88 @@
+.search-box-hover {
+  background: #393e46;
+  /* height: 40px; */
+  border-radius: 15px;
+  padding: 5px;
+  transition: 0.4s;
+}
+
+.search-btn {
+  color: #29a19c;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 15px;
+  background: #393e46;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+
+.search-txt-hover {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  color: transparent;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+}
+
+/* placeholder color  */
+
+.search-txt-hover::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #393e46;
+  opacity: 1;
+}
+
+.search-box-hover:hover > .search-txt-hover {
+  width: 720px;
+  padding: 0 10px;
+  color: black;
+}
+
+@media only screen and (max-width: 1500px) {
+  .search-box-hover:hover > .search-txt-hover {
+    width: 400px;
+    padding: 0 10px;
+    color: black;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .search-box-hover:hover > .search-txt-hover {
+    width: 300px;
+    padding: 0 10px;
+    color: black;
+  }
+}
+
+.search-box-hover:hover {
+  background: white;
+}
+
+.search-box-hover:hover > .search-btn {
+  background: #222831;
+  color: #a3f7bf;
+}
+
+/* placeholder color  */
+
+.search-txt-hover::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #393e46;
+  opacity: 1;
+}
+
+.search-box-hover:hover {
+  background: white;
+}
+
+.search-box-hover:hover > .search-btn {
+  background: #222831;
+  color: #a3f7bf;
+}

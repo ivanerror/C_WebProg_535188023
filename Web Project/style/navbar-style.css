@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@font-face {
+  font-family: JosefinSans;
+  src: url(../font/JosefinSans-BoldItalic.ttf);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.body-padding {
+  padding: 8em;
+}
+
+li,
+a,
+button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+.logo {
+  cursor: pointer;
+  font-family: JosefinSans;
+  font-size: 32px;
+  font-weight: 700;
+  padding-left: 40px;
+}
+
+.cta button {
+  padding: 9px 25px;
+  background-color: rgba(41, 161, 156, 1);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.cta button:hover {
+  background-color: rgba(41, 161, 156, 0.8);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.search-box {
+  background: white;
+  border-radius: 15px;
+  padding: 5px;
+  width: 100%;
+}
+
+.search-btn {
+  color: #29a19c;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 15px;
+  background: #393e46;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+
+.search-btn:hover {
+  text-decoration: none;
+}
+
+.search-txt {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  color: transparent;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  padding-left: 10px;
+  color: black;
+  flex-grow: 1;
+  width: 80%;
+}
+
+/* placeholder color  */
+
+.search-txt::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #393e46;
+  opacity: 1;
+}
+
+.search-box:hover > .search-btn {
+  background: #222831;
+  color: #a3f7bf;
+}
+
+.wrap {
+  height: 200%;
+}
+
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+.banner-area .header {
+  color: rgb(34, 34, 34);
+}
+
+.banner-area {
+  height: 75vh;
+  background-image: url("../img/bg.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}
+
+.img-fluid {
+  width: 100%;
+}
