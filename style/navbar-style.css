@@ -1,16 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
-@font-face {
-  font-family: JosefinSans;
-  src: url(../font/JosefinSans-BoldItalic.ttf);
-}
-* {
+
+body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-.body-padding {
-  padding: 8em;
 }
 
 li,
@@ -23,24 +16,49 @@ button {
   text-decoration: none;
 }
 
-.logo {
-  cursor: pointer;
-  font-family: JosefinSans;
-  font-size: 32px;
-  font-weight: 700;
-  padding-left: 40px;
+header {
+  background-color: #222831;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10%;
 }
 
-.cta button {
+.logo {
+  margin-right: 30px;
+  cursor: pointer;
+  width: 40px;
+}
+
+.nav_links {
+  list-style: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.nav_links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+  color: #29a19c;
+}
+
+button {
+  margin-left: 20px;
   padding: 9px 25px;
   background-color: rgba(41, 161, 156, 1);
   border: none;
-  border-radius: 10px;
+  border-radius: 40px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
 
-.cta button:hover {
+button:hover {
   background-color: rgba(41, 161, 156, 0.8);
 }
 
@@ -50,10 +68,12 @@ body {
 }
 
 .search-box {
-  background: white;
-  border-radius: 15px;
+  margin-right: auto;
+  background: #393e46;
+  height: 40px;
+  border-radius: 40px;
   padding: 5px;
-  width: 100%;
+  transition: 0.4s;
 }
 
 .search-btn {
@@ -61,7 +81,7 @@ body {
   float: right;
   width: 40px;
   height: 40px;
-  border-radius: 15px;
+  border-radius: 50%;
   background: #393e46;
   display: flex;
   justify-content: center;
@@ -69,23 +89,17 @@ body {
   transition: 0.4s;
 }
 
-.search-btn:hover {
-  text-decoration: none;
-}
-
 .search-txt {
   border: none;
   background: none;
   outline: none;
+  float: left;
   padding: 0;
   color: transparent;
   font-size: 16px;
   transition: 0.4s;
   line-height: 40px;
-  padding-left: 10px;
-  color: black;
-  flex-grow: 1;
-  width: 80%;
+  width: 0px;
 }
 
 /* placeholder color  */
@@ -96,9 +110,26 @@ body {
   opacity: 1;
 }
 
+.search-box:hover > .search-txt {
+  width: 400px;
+  padding: 0 10px;
+  color: black;
+}
+
+.search-box:hover {
+  background: white;
+}
+
 .search-box:hover > .search-btn {
   background: #222831;
   color: #a3f7bf;
+}
+
+@media screen and (max-width: 1366px) {
+  .search-box:hover > .search-txt {
+    width: 300px;
+    padding: 0 15px;
+  }
 }
 
 .wrap {
@@ -110,21 +141,5 @@ body {
   top: 0;
   left: 0;
   z-index: 9999;
-  width: 100%;
-}
-
-.banner-area .header {
-  color: rgb(34, 34, 34);
-}
-
-.banner-area {
-  height: 75vh;
-  background-image: url("../img/bg.jpg");
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-position: center center;
-}
-
-.img-fluid {
   width: 100%;
 }
