@@ -13,15 +13,7 @@
 
 ## Folder :
 
-**Individu - Tugas Personal**
-- Pertemuan 1 HTML
-- Quiz 1
-- Week 2
-
-  
-
 **Kelompok - Tugas Kelompok**
-
 - Web Project - UTS : Website Penyedia Gambar
 - HomePage Tugas - Tugas landing page
 - Laporan Web Progamming
