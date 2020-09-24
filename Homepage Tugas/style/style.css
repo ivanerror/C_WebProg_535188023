@@ -6,32 +6,62 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 
 body {
-  background: rgba(26, 28, 32);
+  background: rgb(26, 28, 32);
   color: white;
   transition: 0.5s;
   overflow-x: hidden;
 }
+
 .logo {
   cursor: pointer;
   font-family: JosefinSans;
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 700;
+  color: whitesmoke;
 }
 
 .navbar {
   transition: 0.5s;
+  padding: 13px 25px;
+}
+
+.iflogo img{
+  max-block-size: 35px;
+  padding-right: 10px;
+}
+
+.nav-item a{
+  margin: 0px 15px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: whitesmoke;
+}
+
+.centered{
+  padding-top: 15%;
+  text-align: center;
 }
 
 .pdt {
-  padding-top: 200px;
+  padding-top: 50px;
+}
+
+.padd {
+  padding-top: 25px;
+  padding-bottom: 15px;
+}
+
+.textcontainer h1{
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .head h1 {
   font-size: 80px;
   font-weight: 600;
   letter-spacing: -0.5;
-  font-family: "Montserrat", sans-serif;
-  text-transform: uppercase;
+  font-family: JosefinSans;
 }
 
 .img img {
@@ -163,4 +193,8 @@ body {
   border-radius: 20px;
   overflow: hidden;
   margin: 20px 0;
+}
+
+html{
+  scroll-behavior: smooth;
 }

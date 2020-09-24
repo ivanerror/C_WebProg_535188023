@@ -29,6 +29,9 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dar  k fixed-top pl-4 pr-4" id="navbar">
+      <div class="iflogo">
+        <a href="#"><img src="img/iflogo.png"></a>
+      </div>
       <a class="navbar-brand logo" href="#">insframe</a>
       <button
         class="navbar-toggler"
@@ -45,51 +48,68 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="UI.html">UI</a>
+            <a class="nav-link" href="#home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Tech</a>
+            <a class="nav-link" href="#aboutus">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallery">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#ourteam">Our Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="UI.html">UI</a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <section class="head pdt" style="height: 100vh">
-      <div class="container">
-        <h1 class="ml10">
+    <div class="home-area" id="home">
+    <section class="head" style="height: 100vh">
+      <div class="container" id="home">
+        <h1 class="ml10 centered">
           <span class="text-wrapper">
-            <span class="letters">InsFrame</span>
+            <span class="intro">introducing,</span> <br>
+            <span class="letters">insight[frame].</span> <br>
+            <span class="motto">deeper insight. within a frame.</span>
           </span>
         </h1>
       </div>
     </section>
+  </div>
 
+    <div class="about-area" id="aboutus">
     <section class="pic-desc pdt" data-aos="fade-right">
+      <div class="textcontainer text-center padd">
+        <h1>About Us</h1>
+      </div>
       <div class="container">
         <div>
           <div class="row">
             <div class="col-lg-6">
               <div class="img">
                 <img
-                src="img/Photos.jpg"
-                alt=""
-                class="img-fluid"
-              />
+                  src="https://images.unsplash.com/photo-1600210491305-7396500b5b31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
+                  alt=""
+                  class="img-fluid"
+                />
               </div>
             </div>
             <div class="col d-flex align-items-center">
               <div class="desc">
                 <h1 class="ml6">
                   <span class="text-wrapper">
-                    <span class="letters">Free Image ?</span>
+                    <span class="letters">Beautiful Questions</span>
                   </span>
                 </h1>
 
                 <p>
-                  Millions Of high-resolution images brought to you 
-                  by Millions of Generous Community of Photographers, Designers ,etc. 
-                  So Join The Community For free
-                 </p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde velit magni obcaecati harum dolorum
+                  laborum ab rem dolor molestiae ratione, nostrum voluptatem beatae nam veritatis enim iste eius,
+                  suscipit voluptatum?
+                </p>
               </div>
             </div>
           </div>
@@ -103,18 +123,19 @@
           <div class="row">
             <div class="col d-flex align-items-center">
               <div class="desc" style="text-align: right">
-                <h1>About Insframe</h1>
+                <h1>About Insframe Buatan Anak Bangsa</h1>
 
                 <p>
-                  InsFrame was inspired by how hard  find good image for our personal needs,
-                 That is why InsFrame Made to fullfill your Imagination Beyond Compare
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde velit magni obcaecati harum dolorum
+                  laborum ab rem dolor molestiae ratione, nostrum voluptatem beatae nam veritatis enim iste eius,
+                  suscipit voluptatum?
                 </p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="img">
                 <img
-                  src="img/fantasy.jpg"
+                  src="https://images.unsplash.com/photo-1600210491305-7396500b5b31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
                   alt=""
                   class="img-fluid"
                 />
@@ -124,8 +145,13 @@
         </div>
       </div>
     </section>
+  </div>
 
+  <div class="gallery-area" id="gallery">
     <section class="carousel pdt" data-aos="fade-up">
+      <div class="textcontainer text-center padd">
+        <h1>Gallery</h1>
+      </div>
       <div class="container-fluid p-0">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
@@ -158,10 +184,14 @@
         </div>
       </div>
     </section>
+    </div>
 
-    <section class="team" data-aos="fade-up">
+    <div class="ourteam-area" id="ourteam">
+    <section class="team pdt" data-aos="fade-up">
       <div class="container text-center">
-        <h1>Our Team</h1>
+        <div class="textcontainer text-center padd">
+          <h1>Our Teams</h1>
+        </div>
         <div class="row justify-content-center">
           <div class="col-lg-4 col-md-6">
             <div class="card text-center tilt">
@@ -210,15 +240,15 @@
               <div class="profile-card">
                 <div class="card-header">
                   <div class="pic">
-                    <img src="img/Black.jpg" alt="" />
+                    <img src="img/profil.jpg" alt="" />
                   </div>
-                  <div class="name">Hendrawan Cahyady</div>
+                  <div class="name">Gabriel Ivan Setyaputra</div>
                   <div class="desc">Web Developer</div>
                   <div class="desc2">Jakarta | Indonesia</div>
                   <div class="desc2">Tarumanagara University</div>
                   <div class="sosmed">
-                    <a href="https://www.facebook.com/hendrawan.roxas/" target="_BLANK" class="fab fa-facebook f"></a>
-                    <a href="https://www.instagram.com/hndrwnchydy/" target="_BLANK" class="fab fa-instagram"></a>
+                    <a href="https://www.facebook.com/ivansetyap/" target="_BLANK" class="fab fa-facebook f"></a>
+                    <a href="https://www.instagram.com/ivansetya_p/" target="_BLANK" class="fab fa-instagram"></a>
                     <a
                       href="mailto:gabriel.535180023@stu.untar.ac.id"
                       target="_BLANK"
@@ -376,6 +406,7 @@
         </div>
       </div>
     </section>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

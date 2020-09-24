@@ -1,10 +1,10 @@
 $(window).scroll(function () {
   if ($(window).scrollTop() >= 300) {
-    $("#navbar").css("background", "rgba(26, 28, 32)");
-    $("body").css({ background: "white", color: "black" });
+    $("#navbar").css("background", "rgba(26, 28, 32, 0.97)");
+    $("body").css({ background: "whitesmoke", color: "black" });
   } else {
     $("#navbar").css("background", "transparent");
-    $("body").css({ background: " rgba(26, 28, 32)", color: "white" });
+    $("body").css({ background: "rgba(26, 28, 32)", color: "white" });
   }
 });
 
@@ -14,7 +14,7 @@ $(document).ready(function () {
     maxTilt: 6,
     glare: true,
     maxGlare: 0.5,
-    speed: 1000,
+    speed: 10000,
     transition: "cubic-bezier(.86,.27,.91,.65)",
   });
 
