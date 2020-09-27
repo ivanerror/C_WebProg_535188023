@@ -127,10 +127,41 @@ body {
 
 .banner-area {
   height: 75vh;
-  background-image: url("../img/bg.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("../img/bg.jpg");
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-area h1{
+  max-width: 650px;
+  width: 100%;
+  z-index: 3;
+  display: block;
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.banner-area i{
+  font-size: 22px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-field{
+  height: 50px;
+  width: 700px;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  outline: none;
 }
 
 .img-fluid {
