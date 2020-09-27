@@ -1,6 +1,6 @@
 $(window).scroll(function () {
   if ($(window).scrollTop() >= 300) {
-    $("#navbar").css("background", "rgba(26, 28, 32, 0.97)");
+    $("#navbar").css("background", "rgba(26, 28, 32, 1)");
     $("body").css({ background: "whitesmoke", color: "black" });
   } else {
     $("#navbar").css("background", "transparent");
