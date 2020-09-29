@@ -1,17 +1,20 @@
-
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-*{
-    box-sizing: border-box;
-    font-weight: normal;
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+* {
+  box-sizing: border-box;
+  font-weight: normal;
 }
 
-.img_category{
-    height: 10rem;
-    width: auto;
-    object-fit: cover;
+.img_category {
+  height: 10rem;
+  width: auto;
+  object-fit: cover;
 }
 
-h1{
-    font-size: 2.2em;
-    text-transform: uppercase;
+h1 {
+  font-size: 2.2em;
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 15px;
 }
