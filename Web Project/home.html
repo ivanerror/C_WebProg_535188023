@@ -13,12 +13,13 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="style/hover.css">
+    <link rel="stylesheet" href="style/hover.css" />
 
     <title>Hello, world!</title>
 
     <script src="https://kit.fontawesome.com/2153789695.js" crossorigin="anonymous"></script>
     <script
+
     src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"
@@ -36,12 +37,16 @@
   <link rel="stylesheet" href="style/navbar-style.css" />
   <link rel="stylesheet" href="style/search-box-hover.css" />
   <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="style/categories.css" />
   <script src="js/navbar.js"></script>
+
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
-      <a class="navbar-brand logo" href="#">InsFrame</a>
-
+      <div class="iflogo">
+        <a href="home.html"><img src="img/iflogo.png"></a>
+      </div>
+      <a class="navbar-brand logo" href="#">insframe</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -63,41 +68,57 @@
       <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav mt-2 mt-lg-0 ml-auto" style="align-items: center" id="js-navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Explore</a>
+            <a class="nav-link" href="category.html">Explore</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link" href="Login2.html"> Login </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="cta"><button>Register</button></a>
+            <a href="Login2.html?#" class="cta"><button>Register</button></a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <div class="banner-area"></div>
-
-    <div class="container">
-      <div class="row">
-        <!-- Grid column -->
-        <div class="col-md-12 p-2 d-flex justify-content-center mb-5">
-          <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="all">All</button>
-          <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="1">Mountains</button>
-          <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="2">Sea</button>
-        </div>
-        <!-- Grid column -->
+    <div class="banner-area d-flex justify-content-center">
+      <div class="" id="">
+        <h1>Explore millions of free stock photos, powered by unique creators.</h1>
+        <input type="text" class="search-field" placeholder="Search for free photos" />
+        <a href="#"><i class="fas fa-search"></i></a>
       </div>
     </div>
 
-    <div class="container-fluid">
+    <nav class="navbar p-0 navbar-expand-lg shadow-sm nav-2">
+      <!-- Grid column -->
+      <div class="col-md-12 d-flex justify-content-center">
+        <ul class="navbar-nav text-center">
+          <li class="nav-item active-item">
+            <a href="" class="nav-link active-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">Popular</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">Leaderboard</a>
+          </li>
+        </ul>
+        <!-- Grid column -->
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-5">
       <div class="row">
         <div class="col-lg-4 col-md-6 col-xs-12 pl-2 pr-2">
-            <a href="popup.html">
-                <img
-                  src="https://images.unsplash.com/photo-1600136843356-d31bf2fd3958?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80"
-                  alt=""
-                  class="img-fluid mt-2 mb-2">
-            </a>
+          <a href="popup.html">
+            <img
+              src="https://images.unsplash.com/photo-1600136843356-d31bf2fd3958?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80"
+              alt=""
+              class="img-fluid mt-2 mb-2"
+            />
+          </a>
           <img
             src="https://images.unsplash.com/photo-1599687266394-00d0dba159bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
             alt=""
@@ -132,7 +153,5 @@
         </div>
       </div>
     </div>
-
-
   </body>
 </html>

@@ -1,12 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 @font-face {
   font-family: JosefinSans;
-  src: url(../font/JosefinSans-BoldItalic.ttf);
+  src: url(../font/JosefinSans-Bold.ttf);
 }
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.navbar{
+  padding: 9px 25px;
 }
 
 .body-padding {
@@ -23,19 +27,23 @@ button {
   text-decoration: none;
 }
 
+.iflogo img{
+  max-block-size: 35px;
+  padding-right: 10px;
+}
+
 .logo {
   cursor: pointer;
   font-family: JosefinSans;
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 700;
-  padding-left: 40px;
 }
 
 .cta button {
   padding: 9px 25px;
   background-color: rgba(41, 161, 156, 1);
   border: none;
-  border-radius: 10px;
+  border-radius: 15px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
@@ -59,8 +67,8 @@ body {
 .search-btn {
   color: #29a19c;
   float: right;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   border-radius: 15px;
   background: #393e46;
   display: flex;
@@ -119,10 +127,41 @@ body {
 
 .banner-area {
   height: 75vh;
-  background-image: url("../img/bg.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("../img/bg.jpg");
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-area h1{
+  max-width: 650px;
+  width: 100%;
+  z-index: 3;
+  display: block;
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.banner-area i{
+  font-size: 22px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-field{
+  height: 50px;
+  width: 700px;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  outline: none;
 }
 
 .img-fluid {

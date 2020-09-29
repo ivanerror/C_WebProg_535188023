@@ -18,3 +18,7 @@
   line-height: 1em;
   transform-origin: 0 0;
 }
+
+.ml10 .intro, .motto{
+  font-size: 28px;
+}
