@@ -17,10 +17,13 @@
 
     <script src="https://kit.fontawesome.com/2153789695.js" crossorigin="anonymous"></script>
   </head>
+
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
-      <a class="navbar-brand logo" href="#">InsFrame</a>
-
+      <div class="iflogo">
+        <a href="home.html"><img src="img/iflogo.png" /></a>
+      </div>
+      <a class="navbar-brand logo" href="#">insframe</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -33,55 +36,104 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="container-fluid" id="con-search" style="display: none">
-        <div class="search-box" id="search-box">
+        <div class="search-box ml-auto" id="search-box">
           <input type="text" id="search-txt" class="search-txt" name="" placeholder="Search Free Image" />
           <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
         </div>
       </div>
 
       <div class="collapse navbar-collapse" id="navbarToggler">
-        <ul class="navbar-nav mt-2 mt-lg-0 ml-auto" style="align-items: center">
+        <ul class="navbar-nav mt-2 mt-lg-0 ml-auto" style="align-items: center" id="js-navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Explore</a>
+            <a class="nav-link" href="category.html">Explore</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link" href="Login2.html"> Login </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="cta"><button>Register</button></a>
+            <a href="Login2.html?#" class="cta"><button>Register</button></a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <div class="banner-area"></div>
+    <nav class="navbar p-0 navbar-expand-lg shadow-sm nav-2">
+      <!-- Grid column -->
+      <div class="col-md-12 d-flex justify-content-center">
+        <ul class="navbar-nav text-center">
+          <li class="nav-item">
+            <a href="" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">Popular</a>
+          </li>
+          <li class="nav-item active-item">
+            <a href="" class="nav-link active-link">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">Leaderboard</a>
+          </li>
+        </ul>
+        <!-- Grid column -->
+      </div>
+    </nav>
 
-    <!-- Body section -->
-    <div class = "body_sec"> 
-      <section id="Content"> 
-        <h1>Category</h1>
+    <div class="container pt-4">
+      <h1>Category</h1>
+      <p>Explore the world through topics of beautiful photos free to use under the un insframe</p>
 
-        <div class="flip">
-          <div class="front" style="background-image: url(https://images.unsplash.com/photo-1489743342057-3448cc7c3bb9?ixlib=rb-0.3.5&amp;)">
-              <h1 class="text-shadow">Category</h1>
-          </div>
-          <div class="back">
-              <h2>sample</h2>
-              <p>Sample</p>
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <img
+              class="img_category"
+              src="https://images.unsplash.com/photo-1555445091-5a8b655e8a4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div class="flip">
-          <div class="front" style="background-image: url(https://images.unsplash.com/photo-1489743342057-3448cc7c3bb9?ixlib=rb-0.3.5&amp;)">
-              <h1 class="text-shadow">Category</h1>
-          </div>
-          <div class="back">
-              <h2>sample</h2>
-              <p>Sample</p>
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <img
+              class="img_category"
+              src="https://images.unsplash.com/photo-1555445091-5a8b655e8a4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+              </p>
+            </div>
           </div>
         </div>
 
-      </section> 
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <img
+              class="img_category"
+              src="https://images.unsplash.com/photo-1555445091-5a8b655e8a4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script
@@ -99,10 +151,9 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="style/navbar-style.css" />
+    <link rel="stylesheet" href="style/navbar-category.css" />
     <link rel="stylesheet" href="style/search-box-hover.css" />
     <link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="style/category-style.css" />
-    <script src="js/navbar.js"></script>
   </body>
 </html>
