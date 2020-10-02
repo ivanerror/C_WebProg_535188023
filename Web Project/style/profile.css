@@ -1,7 +1,6 @@
 .profile-section .profile-header {
-  background: url(../img/bg.jpg) no-repeat center center fixed;
-  background-size: cover;
-  padding: 100px 0;
+  padding: 70px 0;
+  display: block;
 }
 
 .profile-section img {
@@ -9,12 +8,12 @@
   border-radius: 50%;
 }
 
-.profile-section h1 {
-  font-size: 24px;
+.profile-section .profile-header div {
+  padding: 10px 20px;
 }
 
-.profile-section .profile-picture {
-  padding-right: 50px;
+.profile-section h1 {
+  font-size: 24px;
 }
 
 .profile-section .btn {
