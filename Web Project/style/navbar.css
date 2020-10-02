@@ -10,9 +10,14 @@
 }
 
 body {
-  padding-top: 50px;
+  padding-top: 70px;
 }
 
+@media only screen and (max-width: 990px) {
+  body {
+    padding-top: 110px;
+  }
+}
 .navbar {
   padding: 9px 25px;
   background: #222831;
