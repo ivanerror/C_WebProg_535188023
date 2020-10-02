@@ -10,7 +10,7 @@
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 .navbar {
@@ -22,9 +22,9 @@ body {
   padding: 8em;
 }
 
-li,
-a,
-button {
+.navbar li,
+.navbar a,
+.navbar button {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 16px;
