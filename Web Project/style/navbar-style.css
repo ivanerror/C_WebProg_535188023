@@ -3,13 +3,8 @@
   font-family: JosefinSans;
   src: url(../font/JosefinSans-Bold.ttf);
 }
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
-.navbar{
+.navbar {
   padding: 9px 25px;
 }
 
@@ -20,14 +15,13 @@
 li,
 a,
 button {
-  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 16px;
   color: #edf0f1;
   text-decoration: none;
 }
 
-.iflogo img{
+.iflogo img {
   max-block-size: 35px;
   padding-right: 10px;
 }
@@ -50,11 +44,6 @@ button {
 
 .cta button:hover {
   background-color: rgba(41, 161, 156, 0.8);
-}
-
-body {
-  margin: 0;
-  padding: 0;
 }
 
 .search-box {
@@ -127,7 +116,7 @@ body {
 
 .banner-area {
   height: 75vh;
-  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("../img/bg.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url("../img/bg.jpg");
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
@@ -136,7 +125,7 @@ body {
   align-items: center;
 }
 
-.banner-area h1{
+.banner-area h1 {
   max-width: 650px;
   width: 100%;
   z-index: 3;
@@ -148,14 +137,14 @@ body {
   color: white;
 }
 
-.banner-area i{
+.banner-area i {
   font-size: 22px;
   padding: 5px;
   justify-content: center;
   align-items: center;
 }
 
-.search-field{
+.search-field {
   height: 50px;
   width: 700px;
   padding: 10px;
