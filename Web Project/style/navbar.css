@@ -10,9 +10,14 @@
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 70px;
 }
 
+@media only screen and (max-width: 990px) {
+  body {
+    padding-top: 110px;
+  }
+}
 .navbar {
   padding: 9px 25px;
   background: #222831;
@@ -22,10 +27,9 @@ body {
   padding: 8em;
 }
 
-li,
-a,
-button {
-  font-family: "Montserrat", sans-serif;
+.navbar li,
+.navbar a,
+.navbar button {
   font-weight: 500;
   font-size: 16px;
   color: #edf0f1;
@@ -40,7 +44,7 @@ button {
 .logo {
   cursor: pointer;
   font-family: JosefinSans;
-  font-size: 20px;
+  font-size: 20px !important;
   font-weight: 700;
 }
 
