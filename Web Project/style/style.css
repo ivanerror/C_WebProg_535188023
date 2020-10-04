@@ -151,3 +151,21 @@ body {
   padding-right: 1.15rem;
   color: #fff;
 }
+
+.fa-heart-o {
+  color: red;
+  cursor: pointer;
+}
+
+.fa-heart {
+  color: red;
+  cursor: pointer;
+}
+
+.icon {
+  color: #fff;
+}
+
+.icon:hover {
+  color:lightblue;
+}
