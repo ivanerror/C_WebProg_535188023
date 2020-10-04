@@ -66,14 +66,13 @@ body {
 
 /* underlined tab end  */
 
-
-.box{
+.box {
   position: relative;
   overflow: hidden;
   transition: 0.5s;
 }
 
-.box::before{
+.box::before {
   content: "";
   pointer-events: none;
   position: absolute;
@@ -81,18 +80,18 @@ body {
   right: 0;
   bottom: 0;
   height: 80px;
-  background: webkit-gradient(linear,left bottom,left top,from(rgba(0,0,0,0.5)),to(transparent));
-  background: linear-gradient(to top,rgba(0, 0, 0, 0.5) 0%,transparent 100%);
+  background: webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(transparent));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
   opacity: 0;
-  -webkit-transition: opacity .2s;
-  transition: opacity .2s;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   z-index: 1;
   margin-bottom: 8px;
 }
 
-.box:hover::before{
+.box:hover::before {
   opacity: 1;
 }
 
@@ -101,9 +100,7 @@ body {
   transform: scale(1.02);
 }
 
-
-
-.box .imgBx img{
+.box .imgBx img {
   position: relative;
   top: 0;
   left: 0;
@@ -112,65 +109,41 @@ body {
   object-fit: cover;
 }
 
-.box .content{
+.box .content {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
-  display: flex;
   padding: 20px;
-  align-items: flex-end;
-  text-align: justify;
 }
 
-.photo-item__photographer  {
-  width: auto;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding-bottom: 1.15rem;
-  padding-left: 1.15rem;
+.photo-item__photographer {
+  width: 100%;
   text-decoration: none;
   color: #fff;
   white-space: nowrap;
   opacity: 0;
-  -webkit-transition: opacity .2s;
-  transition: opacity .2s;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
   z-index: 2;
   margin-bottom: 8px;
 }
 
 .photo-item__avatar {
-  display: inline-block;
-  vertical-align: middle;
   border-radius: 50%;
-  text-indent: -9999px;
-  z-index: 2;
-}
-
-.photo-item__name {
-  box-sizing: content-box;
-  max-width: calc(100% - 40px);
-  margin-right: 40px;
-  margin-left: 5px;
-  display: inline-block;
-  vertical-align: middle;
-  text-overflow: ellipsis;
   overflow: hidden;
-  color: #e8e8e8;
 }
 
-.box .content:hover .photo-item__photographer{
+.box .content:hover .photo-item__photographer {
   transition: 0.5s;
   opacity: 1;
 }
 
 .box .content .photo-item__info {
-  position: absolute;
-  -webkit-transition: all .2s,-webkit-transform .2s ease-in-out 0s;
-  transition: all .2s,transform .2s ease-in-out 0s,-webkit-transform .2s ease-in-out 0s;
+  -webkit-transition: all 0.2s, -webkit-transform 0.2s ease-in-out 0s;
+  transition: all 0.2s, transform 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
   display: flex;
   bottom: 0;
   right: 0;
