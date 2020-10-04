@@ -80,7 +80,7 @@
       <div class="" id="">
         <h1>Explore millions of free stock photos, powered by unique creators.</h1>
         <input type="text" class="search-field" placeholder="Search for free photos" />
-        <a href="#"><i class="fas fa-search"></i></a>
+        <a href="#" class="icon"><i class="fas fa-search"></i></a>
       </div>
     </div>
 
@@ -94,13 +94,27 @@
     <div class="container-fluid mt-5">
       <div class="row">
         <div class="col-lg-4 col-md-6 col-xs-12 pl-2 pr-2">
-          <img
-            src="https://images.unsplash.com/photo-1600136843356-d31bf2fd3958?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80"
-            alt=""
-            class="img-fluid mt-2 mb-2"
-            data-toggle="modal"
-            data-target="#myModal"
-          />
+          <div class="box">
+            <div class="imgBx">
+              <img
+                src="https://images.unsplash.com/photo-1600136843356-d31bf2fd3958?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80"
+                alt=""
+                class="img-fluid mt-2 mb-2"
+                data-toggle="modal"
+                data-target="#myModal"
+              />
+            </div>
+            <div class="content d-flex align-items-end">
+              <div class="photo-item__photographer d-flex justify-content-between align-items-end">
+                <a id = heart><i class="fa fa-heart-o fa-lg" aria-hidden="true" ></i> </a>
+                <div class="pic-author d-block text-center">
+                  <img class="photo-item__avatar" height="40" width="40" src="img/Black.jpg" />
+                  <div class="author-name pt-2">Hendrawan Cahyady</div>
+                </div>
+                <a href="#" class="icon" ><i class="fas fa-download"></i></a>
+              </div>
+            </div>
+          </div>
 
           <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog" style="margin-right: 765px">
