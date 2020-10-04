@@ -62,6 +62,7 @@ body {
 }
 
 .search-box {
+  display: fle;
   background: white;
   border-radius: 15px;
   padding: 5px;
@@ -70,14 +71,10 @@ body {
 
 .search-btn {
   color: #29a19c;
-  float: right;
   width: 20px;
   height: 20px;
-  border-radius: 15px;
+  border-radius: 10px;
   background: #393e46;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: 0.4s;
 }
 
@@ -96,8 +93,7 @@ body {
   line-height: 40px;
   padding-left: 10px;
   color: black;
-  flex-grow: 1;
-  width: 80%;
+  width: 100%;
 }
 
 /* placeholder color  */

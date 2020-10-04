@@ -3,18 +3,24 @@
   font-family: JosefinSans;
   src: url(../font/JosefinSans-Bold.ttf);
 }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  /* padding: 0; */
+}
 
 .navbar {
   padding: 9px 25px;
+  background: #222831;
 }
 
 .body-padding {
   padding: 8em;
 }
 
-li,
-a,
-button {
+.navbar li,
+.navbar a,
+.navbar button {
   font-weight: 500;
   font-size: 16px;
   color: #edf0f1;
@@ -47,6 +53,7 @@ button {
 }
 
 .search-box {
+  display: flex;
   background: white;
   border-radius: 15px;
   padding: 5px;
@@ -55,14 +62,10 @@ button {
 
 .search-btn {
   color: #29a19c;
-  float: right;
   width: 20px;
   height: 20px;
-  border-radius: 15px;
+  border-radius: 10px;
   background: #393e46;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: 0.4s;
 }
 
@@ -81,8 +84,7 @@ button {
   line-height: 40px;
   padding-left: 10px;
   color: black;
-  flex-grow: 1;
-  width: 80%;
+  width: 100%;
 }
 
 /* placeholder color  */
