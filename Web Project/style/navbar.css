@@ -62,7 +62,7 @@ body {
 }
 
 .search-box {
-  display: fle;
+  display: flex;
   background: white;
   border-radius: 15px;
   padding: 5px;
