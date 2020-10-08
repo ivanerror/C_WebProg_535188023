@@ -12,6 +12,7 @@
 .navbar {
   padding: 9px 25px;
   background: transparent;
+  z-index: 5;
 }
 
 .body-padding {
