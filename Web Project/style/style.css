@@ -110,11 +110,12 @@ body {
 }
 
 .box .content {
+  cursor: pointer;
   position: absolute;
-  top:425px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   z-index: 1;
   padding: 20px;
 }
@@ -167,5 +168,39 @@ body {
 }
 
 .icon:hover {
-  color:lightblue;
+  color: lightblue;
+}
+
+/* lightbox */
+
+#lightbox {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+#lightbox.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-modal {
+  background: white;
+  width: 80vw;
+}
+
+.my-modal-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-modal-img #img-modal {
+  max-height: 80vh;
+  width: auto;
 }
