@@ -9,3 +9,11 @@ sign_up_btn.addEventListener("click", () => {
 sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
+
+$('#confirm_password').on('keyup', function () {
+  console.log('wow')
+  if ($('#password').val() == $('#confirm_password').val()) {
+    $('#message').html('Password match').css('color', 'green');
+  } else 
+    $('#message').html("Those password didn't match. Try again.").css('color', 'red');
+});
