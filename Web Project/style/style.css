@@ -177,6 +177,7 @@ body {
   position: fixed;
   z-index: 1000;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
@@ -186,36 +187,53 @@ body {
 #lightbox.active {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  overflow-y: auto;
+}
+
+@media only screen and (min-width: 1000px) {
+  .my-modal {
+    display: flex;
+    width: 1200px;
+  }
 }
 
 .my-modal {
+  margin: 30px;
+}
+
+.my-modal-img {
+  /* margin: 20px; */
+  width: 100%;
+  max-width: 1200px;
   background: white;
-  width: 85vw;
+  border-radius: 5px;
+
+  /* margin: 100px; */
 }
 
-.my-modal-img #img-modal {
-  max-height: 80vh;
+.my-modal #img-modal {
+  max-height: 650px;
   width: auto;
+  margin: auto auto;
 }
 
-.author-name{
+.author-name {
   font-size: 14px;
   font-weight: bold;
   padding-left: 5px;
 }
 
-.btn-style{
-  padding: 8px 35px;
+.btn-style {
+  padding: 7px 12px;
   border: 1px solid rgba(156, 156, 156, 0.5);
-  font-size: 16px;
+  font-size: 12px;
   font-weight: normal;
 }
 
-.btn-color{
-  
+.btn-color {
 }
 
-.btn-background{
+.btn-background {
   background: aquamarine;
 }

@@ -14,8 +14,7 @@
     />
 
     <title>insframe</title>
-    <link rel="icon" href="img/iflogo.png">
-
+    <link rel="icon" href="img/iflogo.png" />
 
     <script src="https://kit.fontawesome.com/2153789695.js" crossorigin="anonymous"></script>
     <script
@@ -39,6 +38,7 @@
     <link rel="stylesheet" href="style/categories.css" />
     <script src="js/navbar.js"></script>
     <script defer src="js/lightbox.js"></script>
+    <script src="js/pexels.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
@@ -102,6 +102,7 @@
               <img
                 src="https://images.unsplash.com/photo-1600136843356-d31bf2fd3958?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80"
                 alt=""
+                P
                 class="img-fluid mt-2 mb-2"
                 data-toggle="modal"
                 data-target="#myModal"
@@ -249,52 +250,49 @@
 
 <div id="lightbox">
   <div class="my-modal rounded">
-    <div class="my-modal-header d-flex justify-content-between" style = "padding : 15px">
-      <img src="img/iflogo.png" style ="width: 5%">
-      <div class="container">
-        <button type="button" class="ml-2 btn btn-default btn-style btn-background float-right" style="background-color: white">
-          Download
-          <i class="fas fa-download" aria -hidden="true" style="color: grey;"></i>
-        </button>
-
-        <button type="button" class="ml-2 btn btn-default btn-style float-right" style="background-color: white">
-          Collect
-          <i class="fa fa-plus" aria -hidden="true" style="color: grey;"></i>
-        </button>
-
-        <button type="button" class="ml-2 btn btn-default btn-style float-right" style="background-color: white">
-          Like
-          <i class="fas fa-heart" aria -hidden="true" style="color: grey;"></i>
-        </button>
+    <div class="my-modal-img d-flex justify-content-between flex-lg-row flex-column">
+      <div class="modal-pic-container w-100 d-flex justify-content-center p-4">
+        <img id="img-modal" src="" alt="" class="img-fluid" />
       </div>
-    </div>
-    <div class="my-modal-img d-flex">
-      <img id="img-modal" src="" alt="" class="img-fluid ml-2 mt-2 mb-2" />
-      <div class="card ml-2 mr-2 mt-2 "style ="height:300px" >
-        <ul class="list-group list-group-flush">
+      <div class="modal-detail p-4">
+        <div class="modal-top-button d-flex justify-content-center pb-4">
+          <button type="button" class="btn btn-default btn-style" style="background-color: white">
+            <i class="fas fa-heart" aria-hidden="true" style="color: grey"></i>
+          </button>
 
+          <button type="button" class="btn btn-default btn-style ml-2" style="background-color: white">
+            Save to collection
+            <i class="fa fa-plus" aria-hidden="true" style="color: grey"></i>
+          </button>
+
+          <button type="button" class="btn btn-default btn-style btn-background ml-2" style="background-color: white">
+            Download
+            <i class="fas fa-download" aria-hidden="true" style="color: grey"></i>
+          </button>
+        </div>
+        <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            <div style = "font-size: 10px;">Author</div>
-            <div class="pic-author d-flex mt-2">
+            <div style="font-size: 10px">Author</div>
+            <div class="pic-author d-flex align-items-center mt-2">
               <img class="photo-item__avatar" height="45" width="45" src="img/Black.jpg" />
-              <div class="author-name pt-2" style="color: #222222;">Hendrawan</div>
+              <div class="author-name ml-2" style="color: #222222">Hendrawan</div>
             </div>
           </li>
 
           <li class="list-group-item">
-            <div style = "font-size: 10px;">Photo Information</div>
-              <div class = "mt-2">
-                <b>Lorem ipsum dolor sit amet consectetur adipisicing elit.</b>
-              </div>
+            <div style="font-size: 10px">Photo Information</div>
+            <div class="mt-2">
+              <b>Lorem ipsum dolor sit amet consectetur adipisicing elit.</b>
+            </div>
           </li>
 
           <li class="list-group-item">
-            <div style = "font-size: 10px;">License</div>
-            <div class = "d-flex mt-2">
+            <div style="font-size: 10px">License</div>
+            <div class="d-flex mt-2">
               <i class="fa fa-check mr-2" aria-hidden="true"></i>
               <div>Free to use.</div>
             </div>
-            <div class = d-flex>
+            <div class="d-flex">
               <i class="fa fa-check mr-2" aria-hidden="true"></i>
               <div>No attribution required.</div>
             </div>
