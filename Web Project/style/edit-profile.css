@@ -42,3 +42,8 @@ footer {
   height: 200px;
   background: #222831;
 }
+
+.navbar .profile-picture img {
+  width: 30px;
+  border-radius: 50%;
+}
