@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
+
 body {
   font-family: "Montserrat", sans-serif;
 }
@@ -191,13 +193,6 @@ body {
   overflow-y: auto;
 }
 
-@media only screen and (min-width: 1000px) {
-  .my-modal {
-    display: flex;
-    width: 1200px;
-  }
-}
-
 .my-modal {
   margin: 30px;
 }
@@ -213,7 +208,7 @@ body {
 }
 
 .my-modal #img-modal {
-  max-height: 650px;
+  max-height: 100%;
   width: auto;
   margin: auto auto;
 }
@@ -225,15 +220,48 @@ body {
 }
 
 .btn-style {
-  padding: 7px 12px;
+  padding: 7px 10px;
   border: 1px solid rgba(156, 156, 156, 0.5);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: normal;
-}
-
-.btn-color {
 }
 
 .btn-background {
   background: aquamarine;
+}
+
+.modal-detail {
+  max-width: 700px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .my-modal {
+    display: flex;
+    width: 1200px;
+  }
+
+  .btn-style {
+    padding: 7px 11px;
+    font-size: 12px;
+    font-weight: normal;
+  }
+}
+
+.banner-content {
+  padding: 20px;
+}
+
+.banner-area .banner-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  padding: 0 5px;
+  font-weight: 300;
+}
+
+.category-link {
+  color: white;
+}
+
+.banner-area .banner-link:hover {
+  color: rgba(255, 255, 255, 1);
 }
