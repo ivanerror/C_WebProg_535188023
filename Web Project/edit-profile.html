@@ -71,9 +71,12 @@
         <form action="">
           <div class="form-group text-center">
             <div class="profile-picture p-4">
-              <img src="img/profil.jpg" alt="" />
+              <img id="output_image" src="img/profil.jpg" alt="" />
             </div>
-            <a href=""><button class="btn btn-insframe">Choose File</button></a>
+            <div>
+              <label class="btn btn-insframe" for="file-ip-1">Choose File</label>
+              <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);" style="display: none;"/>
+            </div>
           </div>
           <div class="form-row">
             <div class="form-group col-lg-6">
@@ -144,9 +147,11 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
+    <script src="js/upload.js"></script>
     <link rel="stylesheet" href="style/navbar.css" />
     <link rel="stylesheet" href="style/search-box-hover.css" />
     <link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="style/edit-profile.css" />
+    <link rel="stylesheet" href="style/upload.css" />
   </body>
 </html>
