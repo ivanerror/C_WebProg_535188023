@@ -1,0 +1,346 @@
+.search-box-hover {
+  background: #393e46;
+  /* height: 40px; */
+  border-radius: 15px;
+  padding: 1px;
+  transition: 0.4s;
+}
+
+.search-btn {
+  color: #29a19c;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 15px;
+  background: #393e46;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+
+.search-txt-hover {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  color: transparent;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+}
+
+/* placeholder color  */
+
+.search-txt-hover::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #393e46;
+  opacity: 1;
+}
+
+.search-box-hover:hover > .search-txt-hover {
+  width: 760px;
+  padding: 0 10px;
+  color: black;
+}
+
+@media only screen and (max-width: 1350px) {
+  .search-box-hover:hover > .search-txt-hover {
+    width: 700px;
+    padding: 0 10px;
+    color: black;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .search-box-hover:hover > .search-txt-hover {
+    width: 630px;
+    padding: 0 10px;
+    color: black;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  .search-box-hover:hover > .search-txt-hover {
+    width: 600px;
+    padding: 0 10px;
+    color: black;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .search-box-hover:hover > .search-txt-hover {
+    width: 550px;
+    padding: 0 10px;
+    color: black;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .search-box-hover:hover > .search-txt-hover {
+    width: 500px;
+    padding: 0 10px;
+    color: black;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .search-box-hover:hover > .search-txt-hover {
+    width: 450px;
+    padding: 0 10px;
+    color: black;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .search-box-hover:hover > .search-txt-hover {
+    width: 400px;
+    padding: 0 10px;
+    color: black;
+  }
+
+  .search-field {
+    max-width: 600px;
+    padding: 0 10px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .search-box-hover:hover > .search-txt-hover {
+    width: 350px;
+    padding: 0 10px;
+    color: black;
+  }
+
+  .search-field {
+    /* width: 650px; */
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    /* width: 625px; */
+    padding: 0 10px;
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .search-box-hover:hover > .search-txt-hover {
+    width: 300px;
+    padding: 0 10px;
+    color: black;
+  }
+
+  .search-field {
+    width: 625px;
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    width: 600px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .search-box-hover:hover > .search-txt-hover {
+    width: 250px;
+    padding: 0 10px;
+    color: black;
+  }
+
+  .search-field {
+    width: 600px;
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    width: 575px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .search-box-hover:hover > .search-txt-hover {
+    width: 200px;
+    padding: 0 10px;
+    color: black;
+  }
+
+  .search-field {
+    width: 575px;
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    width: 550px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .search-box-hover:hover > .search-txt-hover {
+    width: 150px;
+    padding: 0 10px;
+    color: black;
+  }
+
+  .search-field {
+    width: 550px;
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    width: 525px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .search-field {
+    width: 525px;
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    width: 500px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .search-field {
+    width: 500px;
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    width: 475px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .search-field {
+    width: 475px;
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    width: 450px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .search-field {
+    width: 450px;
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    width: 425px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .search-field {
+    width: 400px;
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    width: 400px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .search-field {
+    width: 375px;
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    width: 375px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .search-field {
+    width: 350px;
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    width: 350px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .search-field {
+    width: 325px;
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    width: 325px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .search-field {
+    width: 300px;
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    width: 300px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .search-field {
+    width: 275px;
+    padding: 0 10px;
+  }
+
+  .banner-area h1 {
+    width: 275px;
+    padding: 0 10px;
+  }
+}
+
+.search-box-hover:hover {
+  background: white;
+}
+
+.search-box-hover:hover > .search-btn {
+  background: #222831;
+  color: #a3f7bf;
+}
+
+/* placeholder color  */
+
+.search-txt-hover::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #393e46;
+  opacity: 1;
+}
+
+.search-box-hover:hover {
+  background: white;
+}
+
+.search-box-hover:hover > .search-btn {
+  background: #222831;
+  color: #a3f7bf;
+}
