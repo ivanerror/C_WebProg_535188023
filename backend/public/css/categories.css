@@ -1,0 +1,26 @@
+button{
+    padding: .5em 1em;
+    border: none;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.container .row .btnbtn .button-underline::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: rgb(34, 40, 49);
+    transition: transform 300ms ease-in-out;
+
+    transition: transform 300ms ease-in-out;
+    transform: scaleX(0);
+}
+
+.container .row .btnbtn .button-underline:hover::before,
+.container .row .btnbtn .button-underline:focus::before{
+    transform: scaleX(1);
+}
