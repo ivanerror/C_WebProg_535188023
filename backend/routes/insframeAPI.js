@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     try {
         const imageLists = await Image.find()
         if(!imageLists) throw new Error('No Image Lists')
-        res.status(200).json(imageLists);
+        res.status(200).json(imageLists); 
     } catch (error) {
         res.status(500).json({message : error.message})        
     }

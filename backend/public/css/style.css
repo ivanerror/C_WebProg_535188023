@@ -4,6 +4,15 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.body-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: auto auto auto
+  /* grid-template-rows:  */
+}
+
 .nav-item {
   padding-left: 15px;
 }
