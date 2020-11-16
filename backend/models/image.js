@@ -25,7 +25,7 @@ const imageSchema = new mongoose.Schema({
     },
     liked_by : [],
     collect_by : [],
-    views : Number,
+    views : 'Number',
     createdAt: {
         type: Date,
         default : Date.now,
