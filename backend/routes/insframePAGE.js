@@ -28,7 +28,10 @@ router.get("", async (req, res) => {
 router.get("/form-data", async (req, res) => {
   const categoryList = await Category.find();
   res.render("upload-form", { categoryLists: categoryList });
-});
+}); 
+
+// JSON UPLOADER 
+// untuk upload upload gambar
 
 router.post("/form-data", async (req, res) => {
   const data = req.body;
