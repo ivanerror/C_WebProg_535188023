@@ -21,15 +21,14 @@ mongoose
 
 // Static Files
 
-app.use(express.static('public'));
-app.use('/css', express.static(__dirname + '/public/css'))
-app.use('/js', express.static(__dirname + '/public/js'))
-app.use('/img', express.static(__dirname + '/public/img'))
-app.use('/font', express.static(__dirname + '/public/font'))
+app.use(express.static(__dirname + '/public'));
+app.use('/sign',express.static(__dirname + '/public'));
+
 
 // Set Views
 app.set('views', './views')
 app.set('view engine', 'ejs')
+app.use(bodyParser.urlencoded())
 app.use(bodyParser.json())
 app.use('/api/images',insframeRouterAPI)
 app.use(insframeRouterPAGE)
