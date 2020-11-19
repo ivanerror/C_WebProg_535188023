@@ -1,0 +1,83 @@
+<section class="edit-profile-section">
+  <div class="container">
+    <h2 class="text-center">Edit Your profile</h2>
+    <form action="">
+      <div class="form-group text-center">
+        <div class="profile-picture p-4">
+          <img id="output_image" src="<%= User.img_profile%>" alt="" />
+        </div>
+        <div>
+          <label class="btn btn-insframe" for="file-ip-1">Choose File</label>
+          <input
+            type="file"
+            id="file-ip-1"
+            accept="image/*"
+            onchange="showPreview(event);"
+            style="display: none"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" class="form-control" name="name" id="name" value="<%= User.name%>" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" id="email" value="<%= User.email%>" />
+      </div>
+      <div class="form-group">
+        <label for="description">Biography</label>
+        <textarea
+          class="form-control"
+          name="description"
+          id=""
+          rows="3"
+        ><%= User.biography %></textarea>
+      </div>
+      <div class="form-group">
+        <label for="website">Website</label>
+        <input type="text" class="form-control" name="website" id="website" value="<%= User.website%>" />
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input
+          autocomplete="off"
+          type="text"
+          class="form-control"
+          name="location"
+          id="location"
+          value="<%= User.location %>"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for=""><b>Photos Uses</b></label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck" />
+          <label class="form-check-label" for="gridCheck"
+            >I’m open to receiving an email to share how I used photos and
+            videos</label
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <a href="">Change Password</a>
+      </div>
+
+      <div class="form-group">
+        <a href="">Delete Your Account</a>
+      </div>
+
+      <button type="submit" class="btn btn-insframe btn-lg">
+        Update Profile
+      </button>
+      <button type="cancekl" class="btn btn-cancel btn-lg">Cancel</button>
+    </form>
+  </div>
+</section>
+
+<script src="js/upload.js"></script>
+<link rel="stylesheet" href="css/edit-profile.css" />
+<link rel="stylesheet" href="css/upload.css" />
