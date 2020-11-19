@@ -6,6 +6,18 @@ const Category = require("../models/category");
 const auth = require("./auth");
 const user = require("../models/user");
 
+router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
+  
+  var User = {};
+
+  try {
+    User = await user.findOne();
+    res.render("leaderboard", {  User: User,page_name: "leaderboard",logged : false, });
+  } catch (error) {
+    res.redirect("/404");
+  }
+});
+
 router.get("/category", auth.checkAuthNext, async (req, res) => {
   const categoryList = await Category.find();
 
