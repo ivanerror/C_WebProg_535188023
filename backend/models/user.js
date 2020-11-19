@@ -21,8 +21,8 @@ const userSchema = new mongoose.Schema({
         unique : true
     },
     biography : String,
-    Location : String,
-    Website : String
+    location : String,
+    website : String
 })
 
 module.exports = mongoose.model('users', userSchema);

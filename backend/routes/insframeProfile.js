@@ -5,6 +5,7 @@ const Image = require("../models/image");
 const Category = require("../models/category");
 const auth = require("./auth");
 const user = require("../models/user");
+const { update } = require("../models/image");
 
 router.get("/@:username", auth.checkAuthNext, async (req, res) => {
   username = req.params.username;
@@ -50,7 +51,23 @@ router.get("/edit", auth.checkAuth, async (req, res) => {
       logged: true,
     });
   } catch (error) {
-    res.json({ error: error.message });
+    res.redirect("/404");
+  }
+});
+
+router.post("/update", auth.checkAuth, async (req, res) => {
+  try {
+    const id = req.user.id
+    const updated = await user.findOneAndUpdate({_id : id}, {
+      name : req.body.name,
+      email : req.body.email,
+      biography : req.body.biography,
+      location : req.body.location,
+      website : req.body.website
+    })
+    res.redirect('/profile/edit')
+  } catch (error) {
+    res.send({error : error.message});
   }
 });
 
