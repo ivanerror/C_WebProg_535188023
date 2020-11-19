@@ -1,7 +1,8 @@
 <section class="edit-profile-section">
   <div class="container">
     <h2 class="text-center">Edit Your profile</h2>
-    <form action="">
+    <form action="/profile/update" method="POST">
+      <input type="hidden" name="id" value="<%= User._id %>">
       <div class="form-group text-center">
         <div class="profile-picture p-4">
           <img id="output_image" src="<%= User.img_profile%>" alt="" />
@@ -26,10 +27,10 @@
         <input type="text" class="form-control" name="email" id="email" value="<%= User.email%>" />
       </div>
       <div class="form-group">
-        <label for="description">Biography</label>
+        <label for="biography">Biography</label>
         <textarea
           class="form-control"
-          name="description"
+          name="biography"
           id=""
           rows="3"
         ><%= User.biography %></textarea>
@@ -73,7 +74,7 @@
       <button type="submit" class="btn btn-insframe btn-lg">
         Update Profile
       </button>
-      <button type="cancekl" class="btn btn-cancel btn-lg">Cancel</button>
+      <a href="/profile/@<%= User.username %>" class="btn btn-cancel btn-lg">Cancel</a>
     </form>
   </div>
 </section>
