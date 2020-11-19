@@ -27,6 +27,7 @@ mongoose
 app.use(express.static(__dirname + '/public'));
 app.use('/sign',express.static(__dirname + '/public'));
 app.use('/profile',express.static(__dirname + '/public'));
+app.use('/category',express.static(__dirname + '/public'));
 
 
 // Set Views
