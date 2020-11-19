@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/Login2.css" />
     <title>Join Us • insframe</title>
-    <link rel="icon" href="img/iflogo.png">
+    <link rel="icon" href="img/iflogo.png" />
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -15,7 +18,7 @@
     ></script>
   </head>
   <body>
-    <div class="container">
+    <div class="container <%= mode %>">
       <div class="forms-container">
         <div class="signin-signup">
           <form action="#" class="sign-in-form">
@@ -28,7 +31,9 @@
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Password" />
             </div>
-            <a href="profile.html"><input type="button" value="Login" class="btn solid" /></a>
+            <a href="profile.html"
+              ><input type="button" value="Login" class="btn solid"
+            /></a>
             <p class="social-text">or sign in with social platforms</p>
             <div class="social-media">
               <a href="#" class="social-icon">
@@ -52,6 +57,14 @@
               <input type="text" placeholder="Username" />
             </div>
             <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="First Name" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Last Name" />
+            </div>
+            <div class="input-field">
               <i class="fas fa-envelope"></i>
               <input type="email" placeholder="Email" />
             </div>
@@ -61,7 +74,11 @@
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input id="confirm_password" type="password" placeholder="Confirm Password" />
+              <input
+                id="confirm_password"
+                type="password"
+                placeholder="Confirm Password"
+              />
             </div>
             <span style="margin: 5px 0" id="message"></span>
 
@@ -105,6 +122,6 @@
       </div>
     </div>
 
-    <script src="/public/js/JsLogin2.js"></script>
+    <script src="js/JsLogin2.js"></script>
   </body>
 </html>
