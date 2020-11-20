@@ -8,11 +8,9 @@ const user = require("../models/user");
 const imageAndUser = require("../models/imageAndUser");
 
 router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
-  
-  var User = {};
 
   try {
-    User = await user.findOne();
+    User = await user.find();
     res.render("leaderboard", {  User: User,page_name: "leaderboard",logged : false, });
   } catch (error) {
     res.redirect("/404");
