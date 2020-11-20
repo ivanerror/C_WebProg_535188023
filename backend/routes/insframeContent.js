@@ -156,6 +156,8 @@ router.post("/form-data", async (req, res) => {
   res.redirect("/form-data");
 });
 
-
+router.get("/popular", (req, res) =>{
+  res.status(200)
+})
 
 module.exports = router;
