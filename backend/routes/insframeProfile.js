@@ -59,7 +59,6 @@ router.post("/update", auth.checkAuth, async (req, res) => {
   try {
     const id = req.user.id
     const updated = await user.findOneAndUpdate({_id : id}, {
-      name : req.body.name,
       email : req.body.email,
       biography : req.body.biography,
       location : req.body.location,

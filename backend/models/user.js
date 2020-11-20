@@ -11,10 +11,6 @@ const userSchema = new mongoose.Schema({
         required : true,
     },
     img_profile : String,
-    name : {
-        type: String,
-        required : true
-    },
     email : {
         type : String,
         required : true,
