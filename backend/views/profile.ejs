@@ -6,7 +6,7 @@
       <img src="<%= viewUser.img_profile%>" alt="" />
     </div>
     <div class="profile-detail text-lg-left">
-      <h1><%= viewUser.name %></h1>
+      <h1><%= viewUser.username %></h1>
       <% if(logged) { %>
       <form action="/profile/edit" method="GET">
         <button class="btn" type="submit">
