@@ -39,6 +39,22 @@ router.post("/auth", async (req, res) => {
   }
 });
 
+router.post("/register", async (req, res) => {
+  const password = await bcrypt.hash(req.body.password, 10);
+  const newUser = new user({
+    username : req.body.username,
+    email : req.body.email,
+    password : password
+  });
+  try {
+    const userLists = await newUser.save();
+    if (!userLists) throw new Error("Something went wrong");
+    res.status(200).redirect('/sign/in')
+  } catch (error) {
+    res.status(200).redirect('/sign/up')
+  }
+});
+
 router.get("/:mode", auth.checkAuthNext, (req, res) => {
   if (req.isAuthenticated) {
     res.redirect('/')

@@ -22,6 +22,7 @@ const imageSchema = new mongoose.Schema({
     author : {
         type : String,
         required : true,
+        ref: "users"
     },
     liked_by : [],
     collect_by : [],

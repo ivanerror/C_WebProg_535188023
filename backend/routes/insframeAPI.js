@@ -90,4 +90,15 @@ router.post("/user", async (req, res) => {
   }
 });
 
+router.get("/is", async (req, res) => {
+  console.log("omg");
+
+  try {
+    const imageSync = await Image.find().populate("author","username email biography")
+    res.status(200).json(imageSync)
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
 module.exports = router;

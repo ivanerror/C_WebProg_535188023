@@ -41,4 +41,8 @@ app.use('/profile',insframeProfile)
 app.use('/api/images',insframeRouterAPI)
 app.use(insframeContent)
 
+// app.get("*", async (req, res) => {
+//     res.render("404", { layout: false });
+//   });
+
 app.listen(PORT, () => console.log(`App listening at http://localhost:${PORT}`))
