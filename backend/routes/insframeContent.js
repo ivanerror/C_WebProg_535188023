@@ -7,6 +7,18 @@ const auth = require("./auth");
 const user = require("../models/user");
 const imageAndUser = require("../models/imageAndUser");
 
+router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
+  
+  var User = {};
+
+  try {
+    User = await user.findOne();
+    res.render("leaderboard", {  User: User,page_name: "leaderboard",logged : false, });
+  } catch (error) {
+    res.redirect("/404");
+  }
+});
+
 router.get("/category", auth.checkAuthNext, async (req, res) => {
   const categoryList = await Category.find();
 
@@ -55,6 +67,45 @@ router.get("/", auth.checkAuthNext, async (req, res) => {
     });
   }
 });
+
+router.get("/category/:categoryName", auth.checkAuthNext ,async (req, res) => {
+  const categoryName = req.params.categoryName;
+  const categories = {};
+  try {
+    categoryData = await Category.findOne({category: categoryName})
+    data = await Image.find(
+      {
+        _id: {
+          $in: categoryData.images,
+        },
+      },
+    );
+    
+  console.log(data.source); 
+  }
+  catch (error){
+    res.redirect("/404");
+  }
+  if(req.isAuthenticated) {
+    User = await auth.getUser(req.user.id)
+    res.render("select-category", {
+      categorySelect: categoryData,
+      imageList: data,
+      page_name: "home",
+      logged : true,
+      User : User
+    });
+  }else {
+    res.render("select-category", {
+      categorySelect: categoryData,
+      imageList: data,
+      page_name: "home",
+      logged : false,
+      User : {}
+    });
+  }
+});
+
 
 
 router.get("/form-data", async (req, res) => {

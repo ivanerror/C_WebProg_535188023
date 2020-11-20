@@ -9,6 +9,22 @@ h1 {
 }
 
 .card {
+  margin-top: 35px;
   overflow: hidden;
   border-radius: 15px;
+  height: 300px;
+  width: 350px;
+}
+
+.category-card:hover, .category-card{
+  text-decoration: none;
+  color: black;
+}
+
+.truncate-text {
+  -webkit-line-clamp: 3;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }

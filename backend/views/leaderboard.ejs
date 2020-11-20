@@ -1,0 +1,49 @@
+
+  <%- include('./partials/tab.ejs')%>
+
+  <div class="container">
+    <div class="container my-5">
+      <h3>Leaderboards</h3>
+      <p style="color: grey;">Users with the most views of photos uploaded in the last 30 days.</p>
+
+    </div>
+
+    <div class="container">
+      <div class="col py-5">
+        <div class="row py-3">
+          <div class="d-flex flex-column text-center pr-5">
+            <h1 style="margin: 0;">1</h1>
+            <p style="margin: 0;">000</p>
+            <p style="margin: 0;">Viewers</p>
+          </div>
+          <div class="profile-image pl-5 pr-3">
+            <img src="<%= User.img_profile%>"/>
+          </div>
+          <div class="d-flex flex-column">
+            <h3><%= User.username %></h3>
+            <p>Unique, imaginative, intriguing photography... With a coarse edge.</p>
+          </div>
+        </div>
+        <div class="row py-3">
+          <div class="d-flex flex-column text-center pr-5">
+            <h1 style="margin: 0;">2</h1>
+            <p style="margin: 0;">000</p>
+            <p style="margin: 0;">Viewers</p>
+          </div>
+          <div class="profile-image pl-5 pr-3">
+            <img src="<%= User.img_profile%>" alt="" />
+          </div>
+          <div class="d-flex flex-column">
+            <h3>Name Accounts</h3>
+            <p>Unique, imaginative, intriguing photography... With a coarse edge.</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="/css/leaderboard.css" />
+
+
