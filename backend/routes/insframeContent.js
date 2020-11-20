@@ -155,11 +155,24 @@ router.post("/form-data", async (req, res) => {
   res.redirect("/form-data");
 });
 
-<<<<<<< HEAD
-router.get("/popular", (req, res) =>{
-  res.status(200)
+router.get("/popular", auth.checkAuthNext, async(req, res) =>{
+  const images = await Image.find().populate("author","username img_profile")
+  if (req.isAuthenticated) {
+    User = await auth.getUser(req.user.id);
+    res.render("popular", {
+      imageList: images,
+      page_name:"popular",
+      logged: true,
+      User: User
+    });
+    } else {
+    res.render("popular", {
+      imageList: images,
+      page_name:"popular",
+      logged: false,
+      User: {}
+    });
+  }
 })
 
-=======
->>>>>>> b32d9ace8cc61c69ee0940939b9bf90de9fbdbf8
 module.exports = router;
