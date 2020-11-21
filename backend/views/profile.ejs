@@ -1,0 +1,31 @@
+<section class="profile-section">
+  <div
+    class="profile-header d-lg-flex justify-content-center align-items-center text-center"
+  >
+    <div class="profile-picture">
+      <img src="<%= viewUser.img_profile%>" alt="" />
+    </div>
+    <div class="profile-detail text-lg-left">
+      <h1><%= viewUser.username %></h1>
+      <% if(logged) { %>
+      <form action="/profile/edit" method="GET">
+        <button class="btn" type="submit">
+          <i class="fas fa-pen-square"></i> Edit Your Profile
+        </button>
+      </form>
+      <% } %>
+      <p><%= viewUser.biography %></p>
+    </div>
+  </div>
+</section>
+
+<section class="collection">
+  <div class="container">
+    <div class="tab">
+      <a href="" class="tab-link">0 Photos</a>
+      <a href="" class="link-active tab-link">Collections</a>
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="css/profile.css" />

@@ -32,6 +32,13 @@
   padding-right: 10px;
 }
 
+.navbar .profile-picture img {
+  width:30px;
+  height:30px;
+  object-fit:cover;
+  border-radius: 50%;
+}
+
 .logo {
   cursor: pointer;
   font-family: JosefinSans;
@@ -53,7 +60,7 @@
 }
 
 .search-box {
-  display: flex;
+  display: none;
   background: white;
   border-radius: 15px;
   padding: 5px;

@@ -11,24 +11,14 @@ const userSchema = new mongoose.Schema({
         required : true,
     },
     img_profile : String,
-    name : {
-        first_name : {
-            type : String,
-            required : true
-        },
-        last_name : {
-            type : String,
-            required : true
-        }
-    },
     email : {
         type : String,
         required : true,
         unique : true
     },
     biography : String,
-    Location : String,
-    Website : String
+    location : String,
+    website : String
 })
 
 module.exports = mongoose.model('users', userSchema);
