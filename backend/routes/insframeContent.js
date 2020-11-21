@@ -155,4 +155,24 @@ router.post("/form-data", async (req, res) => {
   res.redirect("/form-data");
 });
 
+router.get("/popular", auth.checkAuthNext, async(req, res) =>{
+  const images = await Image.find().populate("author","username img_profile")
+  if (req.isAuthenticated) {
+    User = await auth.getUser(req.user.id);
+    res.render("popular", {
+      imageList: images,
+      page_name:"popular",
+      logged: true,
+      User: User
+    });
+    } else {
+    res.render("popular", {
+      imageList: images,
+      page_name:"popular",
+      logged: false,
+      User: {}
+    });
+  }
+})
+
 module.exports = router;
