@@ -131,6 +131,17 @@ body {
   padding: 20px;
 }
 
+.content-link {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  padding: 20px;
+}
+
 .photo-item__photographer {
   width: 100%;
   text-decoration: none;
@@ -217,7 +228,7 @@ body {
 }
 
 .my-modal #img-modal {
-  max-height: 100%;
+  max-height: 600px;
   width: auto;
   margin: auto auto;
 }
@@ -269,4 +280,9 @@ body {
 
 .banner-area .banner-link:hover {
   color: rgba(255, 255, 255, 1);
+}
+
+.link:hover, .link{
+  text-decoration: none;
+  color: white;
 }

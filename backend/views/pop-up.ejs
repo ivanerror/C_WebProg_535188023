@@ -2,7 +2,7 @@
     <div class="my-modal rounded">
         <div class="my-modal-img d-flex justify-content-between flex-lg-row flex-column">
             <div class="modal-pic-container w-100 d-flex justify-content-center p-4 pr-0">
-                <img id="img-modal" src="<%=photoSelect.source %>" alt="" class="img-fluid" />
+                <img id="img-modal" src="<%=photoSelect.source%>" alt="" class="img-fluid" />
             </div>
             <div class="modal-detail p-4">
                 <div class="modal-top-button d-flex justify-content-center pb-4">
@@ -24,11 +24,10 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <div style="font-size: 10px">Author</div>
-                        <div class="pic-author d-flex align-items-center mt-2">
+                        <a class="link pic-author d-flex align-items-center mt-2" href="/profile/@<%= uploader.username%>">
                             <img class="photo-item__avatar" height="45" width="45" src="<%=uploader.img_profile%>" />
                             <div class="author-name ml-2" style="color: #222222"><%=uploader.username%></div>
-                            
-                        </div>
+                        </a>
                     </li>
                     
 
