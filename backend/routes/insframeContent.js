@@ -285,23 +285,34 @@ router.get("/search/:searchQuery", auth.checkAuthNext, async (req, res) => {
 });
 
 router.get("/popular", auth.checkAuthNext, async (req, res) => {
-  const images = await Image.find().populate("author", "username img_profile");
-  if (req.isAuthenticated) {
-    User = await auth.getUser(req.user.id);
-    res.render("popular", {
-      imageList: images,
-      page_name: "popular",
-      logged: true,
-      User: User,
-    });
-  } else {
-    res.render("popular", {
-      imageList: images,
-      page_name: "popular",
-      logged: false,
-      User: {},
-    });
+
+   try {
+    imageLists = await Image.find().populate(
+      "author",
+      "username img_profile"
+    ).sort({views: -1});
+    if (req.isAuthenticated) {
+      User = await auth.getUser(req.user.id);
+      res.render("popular", {
+        imageList: imagesLists,
+        page_name: "popular",
+        logged: true,
+        User: User,
+      });
+    } else {
+      res.render("popular", {
+        imageList: imageLists,
+        page_name: "popular",
+        logged: false,
+        User: {},
+      });
+    }
   }
+  catch (error) {
+    res.json({ error: error.message });
+    // res.redirect("/404");
+  }
+ 
 });
 
 module.exports = router;
