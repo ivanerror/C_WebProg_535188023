@@ -8,15 +8,10 @@ const user = require("../models/user");
 const imageAndUser = require("../models/imageAndUser");
 
 router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
-  var User = {};
 
   try {
-    User = await user.findOne();
-    res.render("leaderboard", {
-      User: User,
-      page_name: "leaderboard",
-      logged: false,
-    });
+    User = await user.find();
+    res.render("leaderboard", {  User: User,page_name: "leaderboard",logged : false, });
   } catch (error) {
     res.redirect("/404");
   }
@@ -195,5 +190,25 @@ router.get("/search/:searchQuery", auth.checkAuthNext ,async (req,res) => {
   }
 })
 
+
+router.get("/popular", auth.checkAuthNext, async(req, res) =>{
+  const images = await Image.find().populate("author","username img_profile")
+  if (req.isAuthenticated) {
+    User = await auth.getUser(req.user.id);
+    res.render("popular", {
+      imageList: images,
+      page_name:"popular",
+      logged: true,
+      User: User
+    });
+    } else {
+    res.render("popular", {
+      imageList: images,
+      page_name:"popular",
+      logged: false,
+      User: {}
+    });
+  }
+})
 
 module.exports = router;
