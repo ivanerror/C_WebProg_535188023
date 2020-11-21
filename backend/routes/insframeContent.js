@@ -8,19 +8,6 @@ const user = require("../models/user");
 const imageAndUser = require("../models/imageAndUser");
 const { Mongoose } = require("mongoose");
 
-// router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
-//   try {
-//     User = await user.find();
-//     res.render("leaderboard", {
-//       User: User,
-//       page_name: "leaderboard",
-//       logged: false,
-//     });
-//   } catch (error) {
-//     res.redirect("/404");
-//   }
-// });
-
 router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
   try {
     Img = await Image.aggregate([
@@ -67,8 +54,6 @@ router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
         logged: false,
       });
     }
-
-    // res.json({user : leaderboardUser, img : Img});
   } catch (error) {
     res.json({ error: error.message });
     // res.redirect("/404");
@@ -165,6 +150,39 @@ router.get("/category/:categoryName", auth.checkAuthNext, async (req, res) => {
     });
   }
 });
+
+router.get("/photo/:photoName", auth.checkAuthNext, async (req, res) => {
+  const photoName = req.params.photoName;
+  try {
+    photoData = await Image.findOne({ _id: photoName });
+    data = await user.findOne({
+      _id: {
+        $in: photoData.author,
+      },
+    });
+    console.log(data.username)
+  } catch (error) {
+    //res.redirect("/404");
+    res.json(error);
+  }
+  if (req.isAuthenticated) {
+    User = await auth.getUser(req.user.id);
+    res.render("pop-up", {
+      photoSelect: photoData,
+      uploader: data,
+      logged: true,
+      User: User,
+    });
+  } else {
+    res.render("pop-up", {
+      photoSelect: photoData,
+      uploader: data,
+      logged: false,
+      User: {},
+    });
+  }
+});
+
 
 router.get("/form-data", async (req, res) => {
   const categoryList = await Category.find();

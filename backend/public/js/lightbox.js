@@ -5,8 +5,6 @@ const box = document.querySelectorAll(".box");
 box.forEach((image) => {
   image.addEventListener("click", (e) => {
     if(e.target.classList[0] == 'content') {
-      lightbox.classList.add("active");
-      document.querySelector("#img-modal").src = image.querySelector("img").src;
       $("body").css("overflow", "hidden");
     }
   });
@@ -14,7 +12,6 @@ box.forEach((image) => {
 
 lightbox.addEventListener("click", (e) => {
   if (e.target !== e.currentTarget) return;
-  lightbox.classList.remove("active");
   $("body").css("overflow", "visible");
 });
 
