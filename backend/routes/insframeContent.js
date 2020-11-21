@@ -253,18 +253,18 @@ router.post("/form-data", async (req, res) => {
   res.redirect("/form-data");
 });
 
-router.get("/search/:searchQuery", auth.checkAuthNext, async (req, res) => {
+router.get("/search", auth.checkAuthNext, async (req, res) => {
   try {
-    const images = await Image.find().populate(
+    const searchQuery = req.query.keyword
+    const images = await Image.find({ searchQuery: { $regex: searchQuery, $options: 'i' } }).populate(
       "author",
       "username img_profile"
     );
-    const categories = await Category.find().limit(6);
-
+    // res.json(images)
     if (req.isAuthenticated) {
       User = await auth.getUser(req.user.id);
       res.render("search", {
-        searchQuery: req.params.searchQuery,
+        searchQuery: searchQuery,
         imageList: images,
         page_name: "home",
         logged: true,
@@ -272,7 +272,7 @@ router.get("/search/:searchQuery", auth.checkAuthNext, async (req, res) => {
       });
     } else {
       res.render("search", {
-        searchQuery: req.params.searchQuery,
+        searchQuery: searchQuery,
         imageList: images,
         page_name: "home",
         logged: false,

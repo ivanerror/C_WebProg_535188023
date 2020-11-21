@@ -1,5 +1,12 @@
 <%- include('./partials/tab.ejs') %>
-<div class="container-fluid pt-5 text-center">
-  <h1 style="text-transform: capitalize;"><%= searchQuery %> Photos</h1>
-</div>
-<%- include('./partials/collage.ejs') %>
+<% if(!imageList.length) { %>
+  <div class="container-fluid pt-5 text-center">
+    <h1 style="text-transform: capitalize;">Photos Not Found</h1>
+  </div>
+<% } else { %>
+  <div class="container-fluid pt-5 text-center">
+    <h1 style="text-transform: capitalize;">Photos of <%= searchQuery %></h1>
+    <p><%= imageList.length %> Result</p>
+  </div>
+  <%- include('./partials/collage.ejs') %>
+<% } %>
