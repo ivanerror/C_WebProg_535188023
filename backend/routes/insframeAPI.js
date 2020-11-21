@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 // Upload new Image
 
 router.post("/", async (req, res) => {
-  const newImageLists = new Image(req.body);
+  const newImageLists = new Image();
   try {
     const imageLists = await newImageLists.save();
     if (!imageLists) throw new Error("Something went wrong");

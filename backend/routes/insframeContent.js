@@ -6,12 +6,16 @@ const Category = require("../models/category");
 const auth = require("./auth");
 const user = require("../models/user");
 const imageAndUser = require("../models/imageAndUser");
+const { Mongoose } = require("mongoose");
 
 router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
-
   try {
     User = await user.find();
-    res.render("leaderboard", {  User: User,page_name: "leaderboard",logged : false, });
+    res.render("leaderboard", {
+      User: User,
+      page_name: "leaderboard",
+      logged: false,
+    });
   } catch (error) {
     res.redirect("/404");
   }
@@ -121,8 +125,23 @@ router.get("/form-data", async (req, res) => {
 // JSON UPLOADER
 // untuk upload upload gambar
 
-router.get("/form-data", async (req, res) => {
+router.post("/form-data", async (req, res) => {
   const data = req.body;
+  const authorId = data.author;
+  const categoryId = [].concat(data.category);
+  const newCategory = await Category.find({
+    _id: {
+      $in: categoryId,
+    },
+  });
+  const categoryName = newCategory.map((category) => category.category);
+  const newUser = await user.findById(authorId, "username");
+  const searchQuery =
+    data.title +
+    " " + data.description + ' ' +
+    [].concat(categoryName).join(" ") +
+    " " +
+    newUser.username;
   try {
     const newImageLists = new Image({
       title: data.title,
@@ -138,6 +157,7 @@ router.get("/form-data", async (req, res) => {
         },
       },
       author: data.author,
+      searchQuery: searchQuery,
     });
 
     const imageLists = await newImageLists.save();
@@ -158,8 +178,7 @@ router.get("/form-data", async (req, res) => {
   res.redirect("/form-data");
 });
 
-
-router.get("/search/:searchQuery", auth.checkAuthNext ,async (req,res) => {
+router.get("/search/:searchQuery", auth.checkAuthNext, async (req, res) => {
   try {
     const images = await Image.find().populate(
       "author",
@@ -170,7 +189,7 @@ router.get("/search/:searchQuery", auth.checkAuthNext ,async (req,res) => {
     if (req.isAuthenticated) {
       User = await auth.getUser(req.user.id);
       res.render("search", {
-        searchQuery : req.params.searchQuery,
+        searchQuery: req.params.searchQuery,
         imageList: images,
         page_name: "home",
         logged: true,
@@ -178,7 +197,7 @@ router.get("/search/:searchQuery", auth.checkAuthNext ,async (req,res) => {
       });
     } else {
       res.render("search", {
-        searchQuery : req.params.searchQuery,
+        searchQuery: req.params.searchQuery,
         imageList: images,
         page_name: "home",
         logged: false,
@@ -188,27 +207,26 @@ router.get("/search/:searchQuery", auth.checkAuthNext ,async (req,res) => {
   } catch (error) {
     res.redirect("/404");
   }
-})
+});
 
-
-router.get("/popular", auth.checkAuthNext, async(req, res) =>{
-  const images = await Image.find().populate("author","username img_profile")
+router.get("/popular", auth.checkAuthNext, async (req, res) => {
+  const images = await Image.find().populate("author", "username img_profile");
   if (req.isAuthenticated) {
     User = await auth.getUser(req.user.id);
     res.render("popular", {
       imageList: images,
-      page_name:"popular",
+      page_name: "popular",
       logged: true,
-      User: User
+      User: User,
     });
-    } else {
+  } else {
     res.render("popular", {
       imageList: images,
-      page_name:"popular",
+      page_name: "popular",
       logged: false,
-      User: {}
+      User: {},
     });
   }
-})
+});
 
 module.exports = router;
