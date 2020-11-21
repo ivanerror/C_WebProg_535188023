@@ -30,6 +30,7 @@ router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
       },
     ]).sort({ views: -1 });
 
+
     const leaderboardUser = await user.find({
       _id: {
         $in: Img,
@@ -37,7 +38,7 @@ router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
     });
 
     if (req.isAuthenticated) {
-      User = await user.find(req.user.id);
+      User = await user.findById(req.user.id);
       res.render("leaderboard", {
         User: User,
         Img: Img,
@@ -287,14 +288,14 @@ router.get("/search", auth.checkAuthNext, async (req, res) => {
 router.get("/popular", auth.checkAuthNext, async (req, res) => {
 
    try {
-    imageLists = await Image.find().populate(
+    const imageLists = await Image.find().populate(
       "author",
       "username img_profile"
     ).sort({views: -1});
     if (req.isAuthenticated) {
       User = await auth.getUser(req.user.id);
       res.render("popular", {
-        imageList: imagesLists,
+        imageList: imageLists,
         page_name: "popular",
         logged: true,
         User: User,
