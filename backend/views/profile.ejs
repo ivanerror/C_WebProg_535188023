@@ -7,7 +7,7 @@
     </div>
     <div class="profile-detail text-lg-left">
       <h1><%= viewUser.username %></h1>
-      <% if(logged) { %>
+      <% if(logged && isMyProfile) { %>
       <form action="/profile/edit" method="GET">
         <button class="btn" type="submit">
           <i class="fas fa-pen-square"></i> Edit Your Profile
@@ -27,5 +27,7 @@
     </div>
   </div>
 </section>
+
+<%- include('./partials/collage.ejs') %>
 
 <link rel="stylesheet" href="css/profile.css" />

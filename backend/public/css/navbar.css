@@ -41,7 +41,7 @@ body {
   padding-right: 10px;
 }
 
-.navbar .profile-picture img {
+.navbar .profile-picture {
   width:30px;
   height:30px;
   object-fit:cover;

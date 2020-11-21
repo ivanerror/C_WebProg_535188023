@@ -397,3 +397,7 @@ form.sign-in-form {
     left: 50%;
   }
 }
+
+.message {
+  color: red  ;
+}
