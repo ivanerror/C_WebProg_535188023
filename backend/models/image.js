@@ -22,9 +22,16 @@ const imageSchema = new mongoose.Schema({
     author : {
         type : String,
         required : true,
+        ref: "users"
     },
-    liked_by : [],
-    collect_by : [],
+    liked_by : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "users"
+    }],
+    collect_by : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "users"
+    }],
     views : 'Number',
     createdAt: {
         type: Date,

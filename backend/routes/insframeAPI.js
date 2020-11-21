@@ -44,12 +44,12 @@ router.delete("/:id", async (req, res) => {
 
 // Upload new Category
 
-router.post("/category", async (req, res) => {
-  const newCategory = new Category(req.body);
+router.post("/photo", async (req, res) => {
+  const newImages = new Image(req.body);
   try {
-    const categoryLists = await newCategory.save();
-    if (!categoryLists) throw new Error("Something went wrong");
-    res.status(200).json(categoryLists);
+    const imagesLists = await newImages.save();
+    if (!imagesLists) throw new Error("Something went wrong");
+    res.status(200).json(imagesLists);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -87,6 +87,28 @@ router.post("/user", async (req, res) => {
     res.status(200).json(userLists);
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+});
+
+router.get("/is", async (req, res) => {
+
+  try {
+    const imageSync = await Image.find().populate("author","username email biography")
+    res.status(200).json(imageSync)
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+// collected by 
+
+router.get("/iscollect", async (req, res) => {
+  console.log("omg");
+  try {
+    const imageSync = await Image.find({collect_by : "5fb3d310e9cc3529ec25f3b7"}).populate("author","username email biography")
+    res.status(200).json(imageSync)
+  } catch (error) {
+    console.log(error.message);
   }
 });
 

@@ -8,9 +8,9 @@
       <div class="category-link mt-2">
         <span>Suggested : </span>
         <% for(var i=0; i<categories.length; i++) { %>
-        <a class="banner-link" href=""><%= categories[i].category %> ,</a>
+        <a class="banner-link" href="/category/<%= categories[i].category %>"><%= categories[i].category %> ,</a>
         <% } %>
-        <a class="banner-link" href="">More...</a>
+        <a class="banner-link" href="/category">More...</a>
 
       </div>
     </div>

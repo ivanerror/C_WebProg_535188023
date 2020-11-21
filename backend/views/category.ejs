@@ -7,59 +7,29 @@
   </p>
 
   <div class="row">
-    <div class="col-lg-4 col-md-6">
-      <div class="card">
-        <img
-          class="img_category"
-          src="https://images.unsplash.com/photo-1555445091-5a8b655e8a4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-        </div>
+    <% for(var i=0; i<categoryLists.length; i++) { %>
+      <div class="col-lg-4 col-md-6">
+        <a class="category-card" href="/category/<%=categoryLists[i].category%>">
+          <div class="card">
+            <img
+              class="img_category"
+              src="<%= categoryLists[i].image_url %>"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title"><%=categoryLists[i].category%></h5>
+              <p class="card-text truncate-text">
+                <%= categoryLists[i].description %>
+              </p>
+            </div>
+          </div>
+        </a>
       </div>
-    </div>
-
-    <div class="col-lg-4 col-md-6">
-      <div class="card">
-        <img
-          class="img_category"
-          src="https://images.unsplash.com/photo-1555445091-5a8b655e8a4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-md-6">
-      <div class="card">
-        <img
-          class="img_category"
-          src="https://images.unsplash.com/photo-1555445091-5a8b655e8a4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-        </div>
-      </div>
-    </div>
+      <% } %>
   </div>
 </div>
+
+<br>
+<br>
 <link rel="stylesheet" href="css/category-style.css" />

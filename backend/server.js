@@ -27,6 +27,8 @@ mongoose
 app.use(express.static(__dirname + '/public'));
 app.use('/sign',express.static(__dirname + '/public'));
 app.use('/profile',express.static(__dirname + '/public'));
+app.use('/category',express.static(__dirname + '/public'));
+app.use('/photo',express.static(__dirname + '/public'));
 
 
 // Set Views
@@ -40,5 +42,9 @@ app.use('/sign',insframeAuth)
 app.use('/profile',insframeProfile)
 app.use('/api/images',insframeRouterAPI)
 app.use(insframeContent)
+
+// app.get("*", async (req, res) => {
+//     res.render("404", { layout: false });
+//   });
 
 app.listen(PORT, () => console.log(`App listening at http://localhost:${PORT}`))

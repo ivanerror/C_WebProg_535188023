@@ -5,6 +5,8 @@ const user = require("../models/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const auth = require("./auth");
+const Joi = require("joi");
+const { valid } = require("joi");
 
 //router route /sign/:route
 
@@ -14,8 +16,6 @@ router.post("/auth", async (req, res) => {
     const User = await user.findOne({ username: username });
     console.log(User);
     if (User) {
-      console.log(User.password);
-      console.log(password);
       const authResult = await bcrypt.compare(password, User.password);
       if (authResult) {
         const token = jwt.sign(
@@ -27,37 +27,80 @@ router.post("/auth", async (req, res) => {
         );
         res.cookie("token", token);
         res.redirect("/");
+        req.session.destroy()
         return;
       }
-      console.log("invalid cred1");
+      req.session.logMessage =
+        "Login failed : Invalid username or password";
+      res.redirect("/sign/in");
     } else {
-      console.log("invalid cred2");
+      req.session.logMessage =
+        "Login failed : Invalid username or password";
+      res.redirect("/sign/in");
     }
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: error });
+    req.session.logMessage =
+      "Login failed : Invalid username or password";
+    res.redirect("/sign/in");
   }
 });
 
-router.get("/:mode", auth.checkAuthNext, (req, res) => {
-  if (req.isAuthenticated) {
-    res.redirect('/')
-  } else {
-    let mode = "";
-    if (req.params.mode == "in") {
-      mode = "";
-    } else if (req.params.mode == "up") {
-      mode = "sign-up-mode";
-    }
-    res.render("login", { layout: false, mode: mode });
+router.post("/register", async (req, res) => {
+  try {
+    const validation = await regSchema.validateAsync(req.body);
+    const password = await bcrypt.hash(validation.password, 10);
+    const newUser = new user({
+      username: validation.username,
+      email: validation.email,
+      password: password,
+    });
+
+    const userLists = await newUser.save();
+    if (!userLists) throw new Error("Something went wrong");
+    res.status(200).redirect("/sign/in");
+    req.session.destroy();
+    res.redirect("/sign/in");
+  } catch (error) {
+    req.session.regMessage = error.message;
+    res.redirect("/sign/up");
   }
 });
 
 // log out
+router.get("/logout", (req, res) => {
+  res.clearCookie("token", { path: "/" });
+  res.redirect("/");
+});
 
-router.post('/logout', (req, res) => {
-  res.clearCookie('token');
-  res.redirect('/');
+router.get("/:mode", auth.checkAuthNext, (req, res) => {
+  let regMessage = ""
+  let logMessage = ""
+  if (req.isAuthenticated) {
+    res.redirect("/");
+  } else {
+    let mode = "";
+    if (req.params.mode == "in") {
+      logMessage = req.session.logMessage;
+      mode = "";
+    } else if (req.params.mode == "up") {
+      regMessage = req.session.regMessage;
+      mode = "sign-up-mode";
+    }
+    res.render("login", {
+      layout: false,
+      mode: mode,
+      regMessage: regMessage,
+      logMessage: logMessage,
+    });
+  }
+});
+
+// Validation
+
+const regSchema = Joi.object({
+  username: Joi.string().min(6).max(30).required(),
+  email: Joi.string().min(6).max(254).required().email(),
+  password: Joi.string().min(6).max(128).required(),
 });
 
 module.exports = router;

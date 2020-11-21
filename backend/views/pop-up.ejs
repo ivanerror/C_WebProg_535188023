@@ -1,0 +1,55 @@
+<%- include('./partials/tab.ejs')%>
+<div id="lightbox">
+    <div class="my-modal rounded">
+      <div class="my-modal-img d-flex justify-content-between flex-lg-row flex-column">
+        <div class="modal-pic-container w-100 d-flex justify-content-center p-4 pr-0">
+          <img id="img-modal" src="" alt="" class="img-fluid" />
+        </div>
+        <div class="modal-detail p-4">
+          <div class="modal-top-button d-flex justify-content-center pb-4">
+            <button type="button" class="btn btn-default btn-style" style="background-color: white">
+              <i class="fas fa-heart" aria-hidden="true" style="color: grey"></i>
+            </button>
+  
+            <button type="button" class="btn btn-default btn-style ml-2" style="background-color: white">
+              Save to collection
+              <i class="fa fa-plus" aria-hidden="true" style="color: grey"></i>
+            </button>
+  
+            <button type="button" class="btn btn-default btn-style btn-background ml-2" style="background-color: white">
+              Download
+              <i class="fas fa-download" aria-hidden="true" style="color: grey"></i>
+            </button>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div style="font-size: 10px">Author</div>
+              <div class="pic-author d-flex align-items-center mt-2">
+                <img class="photo-item__avatar" height="45" width="45" src="img/Black.jpg" />
+                <div class="author-name ml-2" style="color: #222222">Hendrawan</div>
+              </div>
+            </li>
+  
+            <li class="list-group-item">
+              <div style="font-size: 10px"><%= imageSelect.author %></div>
+              <div class="mt-2">
+                <b><%= imageSelect.detail %></b>
+              </div>
+            </li>
+  
+            <li class="list-group-item">
+              <div style="font-size: 10px">License</div>
+              <div class="d-flex mt-2">
+                <i class="fa fa-check mr-2" aria-hidden="true"></i>
+                <div>Free to use.</div>
+              </div>
+              <div class="d-flex">
+                <i class="fa fa-check mr-2" aria-hidden="true"></i>
+                <div><%=imageSelect.detail%></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
