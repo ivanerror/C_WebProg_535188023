@@ -22,7 +22,11 @@
     "express-session": "^1.17.1",
     "infinite-scroll": "^3.0.6",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "jquery": "^3.5.1",
+=======
+    "joi": "^17.3.0",
+>>>>>>> 02d28cfcd55e122353f17c9bc010a3df993da106
 =======
     "joi": "^17.3.0",
 >>>>>>> 02d28cfcd55e122353f17c9bc010a3df993da106

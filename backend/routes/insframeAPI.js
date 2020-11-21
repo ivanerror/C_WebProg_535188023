@@ -91,6 +91,10 @@ router.post("/user", async (req, res) => {
 });
 
 router.get("/is", async (req, res) => {
+<<<<<<< HEAD
+=======
+  console.log("omg");
+>>>>>>> 02d28cfcd55e122353f17c9bc010a3df993da106
 
   try {
     const imageSync = await Image.find().populate("author","username email biography")
