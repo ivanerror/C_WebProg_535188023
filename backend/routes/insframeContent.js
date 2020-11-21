@@ -158,6 +158,7 @@ router.post("/form-data", async (req, res) => {
       },
       author: data.author,
       searchQuery: searchQuery,
+      views : parseInt(data.views)
     });
 
     const imageLists = await newImageLists.save();
