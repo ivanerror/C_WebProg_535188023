@@ -101,4 +101,16 @@ router.get("/is", async (req, res) => {
   }
 });
 
+// collected by 
+
+router.get("/iscollect", async (req, res) => {
+  console.log("omg");
+  try {
+    const imageSync = await Image.find({collect_by : "5fb3d310e9cc3529ec25f3b7"}).populate("author","username email biography")
+    res.status(200).json(imageSync)
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
 module.exports = router;

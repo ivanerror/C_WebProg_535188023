@@ -5,7 +5,7 @@ const categorySchema = new mongoose.Schema({
         type : String,
         required : true,
     },
-    images: [],
+    images: [{type : mongoose.Schema.Types.ObjectId}],
     description: {
         type : String,
         required : true

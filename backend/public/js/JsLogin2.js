@@ -15,5 +15,5 @@ $('#confirm_password').on('keyup', function () {
   if ($('#password').val() == $('#confirm_password').val()) {
     $('#message').html('Password match').css('color', 'green');
   } else 
-    $('#message').html("Those password didn't match. Try again.").css('color', 'red');
+    $('#message').html("Those password didn't match. Try again.");
 });
