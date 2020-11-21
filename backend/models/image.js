@@ -33,6 +33,7 @@ const imageSchema = new mongoose.Schema({
         ref : "users"
     }],
     views : 'Number',
+    searchQuery : String,
     createdAt: {
         type: Date,
         default : Date.now,

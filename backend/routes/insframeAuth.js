@@ -48,6 +48,10 @@ router.post("/auth", async (req, res) => {
 router.post("/register", async (req, res) => {
   try {
     const validation = await regSchema.validateAsync(req.body);
+    const emailValidate = await user.find({email : validation.email})
+    const usernameValidate = await user.find({username : validation.username})
+    if(usernameValidate) throw new Error(`username : ${validation.username} has already been taken`)
+    if(emailValidate) throw new Error(`email : ${validation.email} has already been taken`)
     const password = await bcrypt.hash(validation.password, 10);
     const newUser = new user({
       username: validation.username,
