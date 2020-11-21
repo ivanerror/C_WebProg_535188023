@@ -10,14 +10,53 @@ const { Mongoose } = require("mongoose");
 
 router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
   try {
-    User = await user.find();
-    res.render("leaderboard", {
-      User: User,
-      page_name: "leaderboard",
-      logged: false,
+    Img = await Image.aggregate([
+      {
+        $group: {
+          _id: "$author",
+          views: { $sum: "$views" },
+          likes: {
+            $sum: {
+              $cond: {
+                if: {
+                  $isArray: "$liked_by",
+                },
+                then: { $size: "$liked_by" },
+                else: "NA",
+              },
+            },
+          },
+        },
+      },
+    ]).sort({ views: -1 });
+
+    const leaderboardUser = await user.find({
+      _id: {
+        $in: Img,
+      },
     });
+
+    if (req.isAuthenticated) {
+      User = await user.find(req.user.id);
+      res.render("leaderboard", {
+        User: User,
+        Img: Img,
+        leaderboardUser : leaderboardUser,
+        page_name: "leaderboard",
+        logged: true,
+      });
+    } else {
+      res.render("leaderboard", {
+        User: {},
+        Img: Img,
+        leaderboardUser : leaderboardUser,
+        page_name: "leaderboard",
+        logged: false,
+      });
+    }
   } catch (error) {
-    res.redirect("/404");
+    res.json({ error: error.message });
+    // res.redirect("/404");
   }
 });
 
@@ -171,7 +210,9 @@ router.post("/form-data", async (req, res) => {
   const newUser = await user.findById(authorId, "username");
   const searchQuery =
     data.title +
-    " " + data.description + ' ' +
+    " " +
+    data.description +
+    " " +
     [].concat(categoryName).join(" ") +
     " " +
     newUser.username;
@@ -191,6 +232,7 @@ router.post("/form-data", async (req, res) => {
       },
       author: data.author,
       searchQuery: searchQuery,
+      views: parseInt(data.views),
     });
 
     const imageLists = await newImageLists.save();
