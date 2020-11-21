@@ -108,6 +108,31 @@ router.get("/category/:categoryName", auth.checkAuthNext, async (req, res) => {
   }
 });
 
+router.get("/photo/:photoName", auth.checkAuthNext, async (req, res) => {
+  const photoName = req.params.photoName;
+  try {
+    photoData = await Image.findOne({ photo: photoName });
+  } catch (error) {
+    res.redirect("/404");
+  }
+  if (req.isAuthenticated) {
+    User = await auth.getUser(req.user.id);
+    res.render("pop-up", {
+      photoSelect: photoData,
+      logged: true,
+      User: User,
+    });
+  } else {
+    res.render("pop-up", {
+      photoSelect: photoData,
+      logged: false,
+      User: {},
+    });
+  }
+});
+
+
+
 router.get("/form-data", async (req, res) => {
   const categoryList = await Category.find();
   const userList = await user.find();

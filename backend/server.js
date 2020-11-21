@@ -29,12 +29,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/sign',express.static(__dirname + '/public'));
 app.use('/profile',express.static(__dirname + '/public'));
 app.use('/category',express.static(__dirname + '/public'));
-<<<<<<< HEAD
 app.use('/photo',express.static(__dirname + '/public'));
-=======
-app.use('/search',express.static(__dirname + '/public'));
->>>>>>> 02d28cfcd55e122353f17c9bc010a3df993da106
-
 app.use('/popular',express.static(__dirname + '/public'));
 
 // Set Views
@@ -52,14 +47,11 @@ app.use('/profile',insframeProfile)
 app.use('/api/images',insframeRouterAPI)
 app.use(insframeContent)
 
-<<<<<<< HEAD
 // app.get("*", async (req, res) => {
 //     res.render("404", { layout: false });
 //   });
-=======
 app.get("*", async (req, res) => {
     res.render("404", { layout: false });
   });
->>>>>>> 02d28cfcd55e122353f17c9bc010a3df993da106
 
 app.listen(PORT, () => console.log(`App listening at http://localhost:${PORT}`))
