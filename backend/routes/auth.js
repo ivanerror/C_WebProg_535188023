@@ -18,7 +18,7 @@ function checkAuthNext(req, res, next) {
 }
 
 function checkAuth(req, res, next) {
-  if (req.cookie["token"]) {
+  if (req.cookies["token"]) {
     try {
       const token = req.cookies["token"];
       const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
