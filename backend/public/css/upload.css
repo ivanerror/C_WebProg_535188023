@@ -1,0 +1,49 @@
+.upload-info {
+    font-size: 16px;
+    max-width: 650px;
+    margin: 0 auto 40px;
+}
+
+.container-text {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.upload-info li{
+    color: grey;
+}
+
+.form-input {
+  width:80%;
+  height: 200px;
+  padding:20px;
+  background:#fff;
+  border:2px dashed lightgray;
+}
+
+.form-input input {
+  display:none;
+}
+
+.form-input label {
+  display:block;
+  width:250px;
+  height:50px;
+  line-height:50px;
+  text-align:center;
+  background:#333;
+  color:#fff;
+  font-size:15px;
+  font-family:"Open Sans",sans-serif;
+  text-transform:Uppercase;
+  font-weight:600;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.container-image img{
+  height: 300px;
+  width: 400px;
+  object-fit: cover;
+}

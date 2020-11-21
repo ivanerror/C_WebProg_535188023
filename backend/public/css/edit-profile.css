@@ -1,0 +1,51 @@
+.edit-profile-section {
+  padding: 70px 0;
+}
+
+.edit-profile-section .container {
+  width: 500px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+}
+
+.edit-profile-section .btn-insframe {
+  background: rgba(41, 161, 156, 1);
+  color: whitesmoke;
+  /* font-size: 14px; */
+}
+
+.edit-profile-section .btn-cancel {
+  background: rgb(206, 206, 206);
+  color: whitesmoke;
+  color: rgb(59, 59, 59);
+}
+
+.edit-profile-section .profile-picture img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.edit-profile-section .form-group a {
+  color: black;
+  text-decoration: none;
+}
+
+.edit-profile-section .form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: rgba(41, 161, 156, 1);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(41, 161, 156, 0.25);
+}
+
+footer {
+  height: 200px;
+  background: #222831;
+}
+
+.navbar .profile-picture img {
+  width: 30px;
+  border-radius: 50%;
+}

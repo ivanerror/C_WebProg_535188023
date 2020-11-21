@@ -1,0 +1,9 @@
+GET http://localhost:3000/sign/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHlhX3AiLCJpYXQiOjE2MDU2OTc0MTF9.8Y0xMjAB5W158o0fixoxeGR7SSDYb_dXS_p5Ug_LfCQ
+###
+POST http://localhost:3000/sign/auth
+Content-Type: application/json
+
+{
+	"username" : "setya_p"
+}
