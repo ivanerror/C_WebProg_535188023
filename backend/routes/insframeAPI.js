@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 // Upload new Image
 
 router.post("/", async (req, res) => {
-  const newImageLists = new Image(req.body);
+  const newImageLists = new Image();
   try {
     const imageLists = await newImageLists.save();
     if (!imageLists) throw new Error("Something went wrong");
@@ -95,6 +95,18 @@ router.get("/is", async (req, res) => {
 
   try {
     const imageSync = await Image.find().populate("author","username email biography")
+    res.status(200).json(imageSync)
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+// collected by 
+
+router.get("/iscollect", async (req, res) => {
+  console.log("omg");
+  try {
+    const imageSync = await Image.find({collect_by : "5fb3d310e9cc3529ec25f3b7"}).populate("author","username email biography")
     res.status(200).json(imageSync)
   } catch (error) {
     console.log(error.message);

@@ -71,16 +71,16 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="search-box ml-auto" id="search-box">
+        <form action="/search" method="GET" class="search-box ml-auto" id="search-box">
           <input
-            type="text"
-            id="search-txt"
-            class="search-txt"
-            name=""
-            placeholder="Search Free Image"
-          />
-          <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
-        </div>
+              type="text"
+              id="search-txt"
+              class="search-txt"
+              name="keyword"
+              placeholder="Search Free Image"
+            />
+            <button href="#" type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+        </form>
 
         <div class="collapse navbar-collapse" id="navbarToggler">
           <ul
@@ -93,13 +93,17 @@
             </li>
             <li class="nav-item">
               <% if (logged) { %>
-              <a href="">
-                <div class="profile-picture">
-                  <a href="/profile/@<%= User.username %>">
-                    <img width="40px" src="<%= User.img_profile %>" alt="" />
-                  </a>
+              <div class="dropdown">
+                <a  data-toggle="dropdown" href="#">
+                    <img class="profile-picture" width="40px" src="<%= User.img_profile %>" alt="" />
+                </a>
+                </button>
+                <div class="dropdown-menu mt-4" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="/profile/@<%= User.username%>">Your Profile</a>
+                  <a class="dropdown-item" href="/sign/logout">Sign Out</a>
                 </div>
-              </a>
+              </div>
+
               <% } else { %>
               <a class="nav-link" href="/sign/in"> Login </a>
               <% } %>

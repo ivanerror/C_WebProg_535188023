@@ -24,9 +24,16 @@ const imageSchema = new mongoose.Schema({
         required : true,
         ref: "users"
     },
-    liked_by : [],
-    collect_by : [],
+    liked_by : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "users"
+    }],
+    collect_by : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "users"
+    }],
     views : 'Number',
+    searchQuery : String,
     createdAt: {
         type: Date,
         default : Date.now,

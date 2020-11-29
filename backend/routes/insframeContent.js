@@ -6,14 +6,58 @@ const Category = require("../models/category");
 const auth = require("./auth");
 const user = require("../models/user");
 const imageAndUser = require("../models/imageAndUser");
+const { Mongoose } = require("mongoose");
 
 router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
-
   try {
-    User = await user.find();
-    res.render("leaderboard", {  User: User,page_name: "leaderboard",logged : false, });
+    Img = await Image.aggregate([
+      {
+        $group: {
+          _id: "$author",
+          views: { $sum: "$views" },
+          likes: {
+            $sum: {
+              $cond: {
+                if: {
+                  $isArray: "$liked_by",
+                },
+                then: { $size: "$liked_by" },
+                else: "NA",
+              },
+            },
+          },
+        },
+      },
+    ]).sort({ views: -1 });
+
+
+    const leaderboardUser = await user.find({
+      _id: {
+        $in: Img,
+      },
+    });
+
+    if (req.isAuthenticated) {
+      User = await user.findById(req.user.id);
+      res.render("leaderboard", {
+        User: User,
+        Img: Img,
+        leaderboardUser : leaderboardUser,
+        page_name: "leaderboard",
+        logged: true,
+      });
+    } else {
+      res.render("leaderboard", {
+        User: {},
+        Img: Img,
+        leaderboardUser : leaderboardUser,
+        page_name: "leaderboard",
+        logged: false,
+      });
+    }
   } catch (error) {
-    res.redirect("/404");
+    res.json({ error: error.message });
+    // res.redirect("/404");
   }
 });
 
@@ -41,83 +85,138 @@ router.get("/category", auth.checkAuthNext, async (req, res) => {
 });
 
 router.get("/", auth.checkAuthNext, async (req, res) => {
-  const images = await Image.find().populate("author","username img_profile")
-  const categories = await Category.find().limit(6);  
+  try {
+    const images = await Image.find().populate(
+      "author",
+      "username img_profile"
+    );
+    const categories = await Category.find().limit(6);
 
+    if (req.isAuthenticated) {
+      User = await auth.getUser(req.user.id);
+      res.render("index", {
+        imageList: images,
+        categories: categories,
+        navbarMode: "home",
+        page_name: "home",
+        logged: true,
+        User: User,
+      });
+    } else {
+      res.render("index", {
+        imageList: images,
+        categories: categories,
+        navbarMode: "home",
+        page_name: "home",
+        logged: false,
+        User: {},
+      });
+    }
+  } catch (error) {
+    res.redirect("/404");
+  }
+});
+
+router.get("/category/:categoryName", auth.checkAuthNext, async (req, res) => {
+  const categoryName = req.params.categoryName;
+  const categories = {};
+  try {
+    categoryData = await Category.findOne({ category: categoryName });
+    data = await Image.find({
+      _id: {
+        $in: categoryData.images,
+      },
+    }).populate("author", "username img_profile");
+
+    console.log(data.source);
+  } catch (error) {
+    res.redirect("/404");
+  }
   if (req.isAuthenticated) {
     User = await auth.getUser(req.user.id);
-    res.render("index", {
-      imageList: images,
-      categories: categories,
-      navbarMode: "home",
-      page_name: "home",
+    res.render("select-category", {
+      categorySelect: categoryData,
+      imageList: data,
+      page_name: "category",
       logged: true,
       User: User,
     });
   } else {
-    res.render("index", {
-      imageList: images,
-      categories: categories,
-      navbarMode: "home",
-      page_name: "home",
+    res.render("select-category", {
+      categorySelect: categoryData,
+      imageList: data,
+      page_name: "category",
       logged: false,
       User: {},
     });
   }
 });
 
-router.get("/category/:categoryName", auth.checkAuthNext ,async (req, res) => {
-  const categoryName = req.params.categoryName;
-  const categories = {};
+router.get("/photo/:photoName", auth.checkAuthNext, async (req, res) => {
+  const photoName = req.params.photoName;
   try {
-    categoryData = await Category.findOne({category: categoryName})
-    data = await Image.find(
-      {
-        _id: {
-          $in: categoryData.images,
-        },
+    photoData = await Image.findOne({ _id: photoName });
+    data = await user.findOne({
+      _id: {
+        $in: photoData.author,
       },
-    );
-    
-  console.log(data.source); 
-  }
-  catch (error){
-    res.redirect("/404");
-  }
-  if(req.isAuthenticated) {
-    User = await auth.getUser(req.user.id)
-    res.render("select-category", {
-      categorySelect: categoryData,
-      imageList: data,
-      page_name: "home",
-      logged : true,
-      User : User
     });
-  }else {
-    res.render("select-category", {
-      categorySelect: categoryData,
-      imageList: data,
-      page_name: "home",
-      logged : false,
-      User : {}
+    console.log(data.username)
+  } catch (error) {
+    //res.redirect("/404");
+    res.json(error);
+  }
+  if (req.isAuthenticated) {
+    User = await auth.getUser(req.user.id);
+    res.render("pop-up", {
+      photoSelect: photoData,
+      uploader: data,
+      logged: true,
+      User: User,
+    });
+  } else {
+    res.render("pop-up", {
+      photoSelect: photoData,
+      uploader: data,
+      logged: false,
+      User: {},
     });
   }
 });
-
 
 
 router.get("/form-data", async (req, res) => {
   const categoryList = await Category.find();
   const userList = await user.find();
-  res.render("upload-form", { categoryLists: categoryList,userLists : userList, logged : false });
+  res.render("upload-form", {
+    categoryLists: categoryList,
+    userLists: userList,
+    logged: false,
+  });
 });
-
 
 // JSON UPLOADER
 // untuk upload upload gambar
 
 router.post("/form-data", async (req, res) => {
   const data = req.body;
+  const authorId = data.author;
+  const categoryId = [].concat(data.category);
+  const newCategory = await Category.find({
+    _id: {
+      $in: categoryId,
+    },
+  });
+  const categoryName = newCategory.map((category) => category.category);
+  const newUser = await user.findById(authorId, "username");
+  const searchQuery =
+    data.title +
+    " " +
+    data.description +
+    " " +
+    [].concat(categoryName).join(" ") +
+    " " +
+    newUser.username;
   try {
     const newImageLists = new Image({
       title: data.title,
@@ -133,6 +232,8 @@ router.post("/form-data", async (req, res) => {
         },
       },
       author: data.author,
+      searchQuery: searchQuery,
+      views: parseInt(data.views),
     });
 
     const imageLists = await newImageLists.save();
@@ -153,24 +254,66 @@ router.post("/form-data", async (req, res) => {
   res.redirect("/form-data");
 });
 
-router.get("/popular", auth.checkAuthNext, async(req, res) =>{
-  const images = await Image.find().populate("author","username img_profile")
-  if (req.isAuthenticated) {
-    User = await auth.getUser(req.user.id);
-    res.render("popular", {
-      imageList: images,
-      page_name:"popular",
-      logged: true,
-      User: User
-    });
+router.get("/search", auth.checkAuthNext, async (req, res) => {
+  try {
+    const searchQuery = req.query.keyword
+    const images = await Image.find({ searchQuery: { $regex: searchQuery, $options: 'i' } }).populate(
+      "author",
+      "username img_profile"
+    );
+    // res.json(images)
+    if (req.isAuthenticated) {
+      User = await auth.getUser(req.user.id);
+      res.render("search", {
+        searchQuery: searchQuery,
+        imageList: images,
+        page_name: "home",
+        logged: true,
+        User: User,
+      });
     } else {
-    res.render("popular", {
-      imageList: images,
-      page_name:"popular",
-      logged: false,
-      User: {}
-    });
+      res.render("search", {
+        searchQuery: searchQuery,
+        imageList: images,
+        page_name: "home",
+        logged: false,
+        User: {},
+      });
+    }
+  } catch (error) {
+    res.redirect("/404");
   }
-})
+});
+
+router.get("/popular", auth.checkAuthNext, async (req, res) => {
+
+   try {
+    const imageLists = await Image.find().populate(
+      "author",
+      "username img_profile"
+    ).sort({views: -1});
+    if (req.isAuthenticated) {
+      User = await auth.getUser(req.user.id);
+      res.render("popular", {
+        imageList: imageLists,
+        page_name: "popular",
+        logged: true,
+        User: User,
+      });
+    } else {
+      res.render("popular", {
+        imageList: imageLists,
+        page_name: "popular",
+        logged: false,
+        User: {},
+      });
+    }
+  }
+  catch (error) {
+    res.json({ error: error.message });
+    // res.redirect("/404");
+  }
+ 
+});
 
 module.exports = router;
