@@ -1,208 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+<div class="container">
+  <h3 class="container-text">Upload Photo</h3>
+  <ul class="upload-info">
+    <li>Your uploads will be distributed for free under the insframe license.</li>
+    <li>To increase the chance of being featured, please ensure that your submissions meet</li>
+    <li>
+      We'll review your submission. If it gets selected, you will receive an email notification and your content
+      will be featured in our search.
+    </li>
+  </ul>
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
+  <div>
+    <form action="/upload-image" method="post" enctype="multipart/form-data">
+      <label for="photo">Photo</label>
+      <input type="text" name="name" id="name" placeholder="Description" required>
+      <input type="file" name="photo" id="photo">
+      <input type="submit" value="upload">
+    </form>
 
-    <title>Edit Profile • insframe</title>
-    <link rel="icon" href="img/iflogo.png" />
-
-    <script
-      src="https://kit.fontawesome.com/2153789695.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
-      <div class="container-fluid">
-        <div class="iflogo d-flex align-items-center py-2">
-          <a href="home.html"><img src="img/iflogo.png" /></a>
-        </div>
-        <a class="navbar-brand logo" href="#">insframe</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarToggler"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="search-box ml-auto" id="search-box">
-          <input
-            type="text"
-            id="search-txt"
-            class="search-txt"
-            name=""
-            placeholder="Search Free Image"
-          />
-          <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="navbarToggler">
-          <ul
-            class="navbar-nav mt-2 mt-lg-0 ml-auto"
-            style="align-items: center"
-            id="js-navbar-nav"
-          >
-            <li class="nav-item">
-              <a class="nav-link" href="category.html">Explore</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=""><i class="far fa-lg fa-bell"></i></a>
-            </li>
-            <li class="nav-item">
-              <a href="">
-                <div class="profile-picture">
-                  <img width="40px" src="img/profil.jpg" alt="" />
-                </div>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="upload.html" class="cta"><button>Upload</button></a>
-            </li>
-          </ul>
-        </div>
+    <div class="d-flex justify-content-center">
+      <div class="form-input d-flex align-items-center justify-content-center">
+        <label id="file-upload-container" for="file-upload">Upload Image</label>
+        <input type="file" id="file-upload" accept="image/*" style="display: none;" />
       </div>
-    </nav>
+    </div>
 
-    <section class="edit-profile-section">
-      <div class="container">
-        <h2 class="text-center">JSON FORM IMAGE UPLOADER</h2>
-        <form action="/form-data" method="POST">
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" name="title" id="title" required/>
+    <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+      <div class="row align">
+        <div class="col">
+          <div class="container-image col text-center">
+            <img id="image-preview" src="" alt="" />
           </div>
-          <div class="form-group">
-            <label for="source">Source</label>
-            <input type="text" class="form-control" name="source" id="source" required/>
-          </div>
-          <div class="form-group">
-            <label for="description">Description</label>
-            <input
-              type="text"
-              class="form-control"
-              name="description"
-              id="description"
-            />
-          </div>
-          <div class="form-group">
-            <label for="camera">Camera</label>
-            <input type="text" class="form-control" name="camera" id="camera" />
-          </div>
-          <div class="form-row">
-            <div class="form-group col-lg-3">
-              <label for="megapixel">Megapixel</label>
-              <input
-                autocomplete="off"
-                type="text"
-                class="form-control"
-                name="megapixel"
-                id="megapixel"
-              />
+        </div>
+        <div class="col">
+          <form action="/form-data" method="POST">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" class="form-control" name="title" id="title" required />
             </div>
-            <div class="form-group col-lg-3">
-              <label for="iso">Iso</label>
-              <input
-                autocomplete="off"
-                type="text"
-                class="form-control"
-                name="iso"
-                id="iso"
-              />
+            <div class="form-group">
+              <label for="source">Source</label>
+              <input type="text" class="form-control" name="source" id="source" />
             </div>
-            <div class="form-group col-lg-3">
-              <label for="ss">S Speed</label>
-              <input
-                autocomplete="off"
-                type="text"
-                class="form-control"
-                name="ss"
-                id="ss"
-              />
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" class="form-control" name="description" id="description" />
             </div>
-            <div class="form-group col-lg-3">
-                <label for="aperture">Aperture</label>
-                <input
-                  autocomplete="off"
-                  type="text"
-                  class="form-control"
-                  name="aperture"
-                  id="aperture"
-                />
+            <div class="form-group">
+              <label for="camera">Camera</label>
+              <input type="text" class="form-control" name="camera" id="camera" />
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-3">
+                <label for="megapixel">Megapixel</label>
+                <input autocomplete="off" type="text" class="form-control" name="megapixel" id="megapixel" />
               </div>
-          </div>
-          <div class='form-group'>
-              <label for='author'>Author</label>
-              <input type='text' class='form-control' name='author' id='author' required/>
-          </div>
-          <div class='form-group'>
-            <label for='views'>Views</label>
-            <input type='text' class='form-control' name='views' id='views' required/>
-        </div>
-          <div class="form-group">
-            <label for=""><b>Select Category</b></label>
-            <% categoryLists.forEach(category => { %>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value="<%= category._id %>"
-                id="defaultCheck1"
-                name="category"
-              />
-              <label class="form-check-label" for="defaultCheck1"
-                ><%= category.category %></label
-              >
+              <div class="form-group col-lg-3">
+                <label for="iso">Iso</label>
+                <input autocomplete="off" type="text" class="form-control" name="iso" id="iso" />
+              </div>
+              <div class="form-group col-lg-3">
+                <label for="ss">S Speed</label>
+                <input autocomplete="off" type="text" class="form-control" name="ss" id="ss" />
+              </div>
+              <div class="form-group col-lg-3">
+                <label for="aperture">Aperture</label>
+                <input autocomplete="off" type="text" class="form-control" name="aperture" id="aperture" />
+              </div>
             </div>
-            <% }); %>
-          </div>
+            <div class='form-group'>
+              <label for='author'>Author</label>
+              <input type='text' class='form-control' name='author' id='author' disabled />
+            </div>
+            <div class="form-group">
+              <label for=""><b>Select Category</b></label>
+              <% categoryLists.forEach(category => { %>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="<%= category._id %>" id="defaultCheck1"
+                  name="category" />
+                <label class="form-check-label" for="defaultCheck1"><%= category.category %></label>
+              </div>
+              <% }); %>
+            </div>
 
-          <button type="submit" class="btn btn-insframe btn-lg">
-            Upload JSON
-          </button>
-        </form>
+            <button type="button" class="btn btn-info" onclick="window.location.href = '/upload/form-data'">Publish</button>
+          </form>
+
+        </div>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <footer></footer>
-
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/upload.js"></script>
-    <link rel="stylesheet" href="css/navbar.css" />
-    <link rel="stylesheet" href="css/search-box-hover.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/edit-profile.css" />
-    <link rel="stylesheet" href="css/upload.css" />
-  </body>
-</html>
+</div>
+<script src="js/upload.js"></script>
+<link rel="stylesheet" href="css/upload.css" />

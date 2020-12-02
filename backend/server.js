@@ -33,6 +33,8 @@ app.use('/search',express.static(__dirname + '/public'));
 app.use('/photo',express.static(__dirname + '/public'));
 app.use('/popular',express.static(__dirname + '/public'));
 
+
+
 // Set Views
 app.use(session({secret: 'mySecret', resave: false, saveUninitialized: false}));
 //configure the options however you need them, obviously
