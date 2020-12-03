@@ -10,19 +10,20 @@
   </ul>
 
   <div>
+    <div class="d-flex justify-content-center">
     <form action="/upload-image" method="post" enctype="multipart/form-data">
       <label for="photo">Photo</label>
-      <input type="text" name="name" id="name" placeholder="Description" required>
       <input type="file" name="photo" id="photo">
       <input type="submit" value="upload">
     </form>
+  </div>
 
-    <div class="d-flex justify-content-center">
+    <!--<div class="d-flex justify-content-center">
       <div class="form-input d-flex align-items-center justify-content-center">
         <label id="file-upload-container" for="file-upload">Upload Image</label>
         <input type="file" id="file-upload" accept="image/*" style="display: none;" />
       </div>
-    </div>
+    </div>-->
   </div>
 
 </div>

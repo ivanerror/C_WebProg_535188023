@@ -239,7 +239,7 @@ router.get("/upload", auth.checkAuthNext, async (req, res) => {
   }
 });
 
-router.post('/upload-image', multer(multerConf).single('photo'), async (req, res) => {
+router.post('/upload-image', multer(multerConf).single('file-upload'), async (req, res) => {
   if (req.file) {
     req.body.photo = req.file.filename;
     // cloudinary.uploader.upload("./public/img/uploads/" + req.file.filename,
