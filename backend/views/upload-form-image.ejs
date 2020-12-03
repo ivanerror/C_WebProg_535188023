@@ -1,0 +1,77 @@
+<div class="container">
+  <h3 class="container-text">Upload Photo</h3>
+  <ul class="upload-info">
+    <li>Your uploads will be distributed for free under the insframe license.</li>
+    <li>To increase the chance of being featured, please ensure that your submissions meet</li>
+    <li>
+      We'll review your submission. If it gets selected, you will receive an email notification and your content
+      will be featured in our search.
+    </li>
+  </ul>
+
+  <div>
+    <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+      <div class="row align">
+        <div class="col">
+          <div class="container-image col text-center">
+            <img id="image-preview" src="<%=uploadImage%>" alt="" />
+          </div>
+        </div>
+        <div class="col">
+          <form action="/confirm-upload" method="POST">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" class="form-control" name="title" id="title" required />
+            </div>
+            <div class="form-group">
+              <label for="source">Source</label>
+              <input type="text" class="form-control" name="source" id="source" value="<%=uploadImage%>" hidden/>
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" class="form-control" name="description" id="description" />
+            </div>
+            <div class="form-group">
+              <label for="camera">Camera</label>
+              <input type="text" class="form-control" name="camera" id="camera" />
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-3">
+                <label for="megapixel">Megapixel</label>
+                <input autocomplete="off" type="text" class="form-control" name="megapixel" id="megapixel" />
+              </div>
+              <div class="form-group col-lg-3">
+                <label for="iso">Iso</label>
+                <input autocomplete="off" type="text" class="form-control" name="iso" id="iso" />
+              </div>
+              <div class="form-group col-lg-3">
+                <label for="ss">S Speed</label>
+                <input autocomplete="off" type="text" class="form-control" name="ss" id="ss" />
+              </div>
+              <div class="form-group col-lg-3">
+                <label for="aperture">Aperture</label>
+                <input autocomplete="off" type="text" class="form-control" name="aperture" id="aperture" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for=""><b>Select Category</b></label>
+              <% categoryLists.forEach(category => { %>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="<%= category._id %>" id="defaultCheck1"
+                  name="category" />
+                <label class="form-check-label" for="defaultCheck1"><%= category.category %></label>
+              </div>
+              <% }); %>
+            </div>
+
+            <button type="submit" class="btn btn-info">Publish</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="js/upload.js"></script>
+<link rel="stylesheet" href="css/upload.css" />
