@@ -23,6 +23,7 @@
     "infinite-scroll": "^3.0.6",
     "joi": "^17.3.0",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
     "mongoose": "^5.10.14",
     "request": "^2.88.2"
   },

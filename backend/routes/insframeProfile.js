@@ -6,6 +6,7 @@ const Category = require("../models/category");
 const auth = require("./auth");
 const user = require("../models/user");
 const { update } = require("../models/image");
+const { route } = require("./insframeAPI");
 
 router.get("/@:username", auth.checkAuthNext, async (req, res) => {
   username = req.params.username;
@@ -20,7 +21,7 @@ router.get("/@:username", auth.checkAuthNext, async (req, res) => {
     });
     images = await Image.find({
       collect_by: viewUser._id,
-    }).populate("author", "username email biography");
+    }).populate("author", "username email biography img_profile");
     if (req.isAuthenticated) {
       User = await user.findOne({
         _id: req.user.id
@@ -73,5 +74,40 @@ router.post("/update", auth.checkAuth, async (req, res) => {
     res.send({ error: error.message });
   }
 });
+
+router.post('/savecollect', auth.checkAuthNext, async (req,res) => {
+  try {
+    if(req.isAuthenticated) {
+      newCollection = await Image.findByIdAndUpdate(req.body.id, {
+        $push : {
+          collect_by : req.user.id
+        }
+      })
+      res.redirect('/photo/' + req.body.id)
+    } else {
+      res.redirect('/sign/in')
+    }
+  } catch (error) {
+    // res.redirect('/404')
+    res.json({error : error.message})
+  }
+})
+
+router.post('/deletecollect', auth.checkAuthNext, async (req, res) => {
+  try {
+    if(req.isAuthenticated) {
+      deleteCollection = await Image.findByIdAndUpdate(req.body.id, {
+        $pull : {
+          collect_by : req.user.id
+        }
+      })
+      res.redirect('/photo/' + req.body.id)
+    } else {
+      res.redirect('/sign/in')
+    }
+  } catch (error) {
+    res.redirect('/404')
+  }
+})
 
 module.exports = router;
