@@ -20,7 +20,7 @@
           <% for(var j=0; j < Img.length; j++){ %>
            <% if(leaderboardUser[j]._id == Img[i]._id){ %>
               <div class="profile-image pl-5 pr-3">
-                <img src="<%= leaderboardUser[i].img_profile %>"/>
+                <img src="<%= leaderboardUser[j].img_profile %>"/>
               </div>
               <div class="d-flex flex-column">
                 <h3><%= leaderboardUser[j].username %></h3>
