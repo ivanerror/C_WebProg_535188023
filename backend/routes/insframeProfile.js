@@ -6,6 +6,9 @@ const Category = require("../models/category");
 const auth = require("./auth");
 const user = require("../models/user");
 const { update } = require("../models/image");
+const multer = require("multer");
+const cloudinary = require("../cloudinaryConfig");
+const upload = require("../multerConfig");
 
 router.get("/@:username", auth.checkAuthNext, async (req, res) => {
   username = req.params.username;
@@ -36,7 +39,7 @@ router.get("/@:username", auth.checkAuthNext, async (req, res) => {
       User: User,
       viewUser: viewUser,
       imageList: images,
-      isMyProfile : isMyProfile
+      isMyProfile: isMyProfile
     });
   } catch (error) {
     res.redirect("/404");
@@ -47,6 +50,7 @@ router.get("/@:username", auth.checkAuthNext, async (req, res) => {
 router.get("/edit", auth.checkAuth, async (req, res) => {
   try {
     User = await user.findById(req.user.id);
+    
     res.render("edit-profile", {
       User: User,
       logged: true,
@@ -55,6 +59,52 @@ router.get("/edit", auth.checkAuth, async (req, res) => {
     res.redirect("/404");
   }
 });
+
+// JSON UPLOADER
+// untuk upload upload gambar
+const multerConf = {
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, "./public/img/uploads");
+    },
+    filename: function (req, file, cb) {
+      const parts = file.mimetype.split("/")[1];
+      cb(null, file.fieldname + "-" + Date.now() + "." + parts);
+    },
+    fileFilter: function (req, file, next) {
+      if (!file) {
+        cb();
+      }
+      const image = file.mimetype.startsWith("image/");
+      if (image) {
+        cb({ message: "File Done" }, true);
+      } else {
+        cb({ message: "File type not supported" }, false);
+      }
+    },
+  }),
+};
+
+router.post(
+  "/uploadimg",
+  multer(multerConf).single("photo"), auth.checkAuthNext,
+  async (req, res) => {
+    if (req.file) {
+      req.body.photo = req.file.filename;
+      const result = await cloudinary.uploader.upload(
+        "./public/img/uploads/" + req.file.filename
+      );
+      const id = req.user.id;
+      const updated = await user.findOneAndUpdate(
+        { _id: id },
+        {
+          img_profile: result.url,
+        }
+      );
+      res.redirect('/profile/edit')
+    }
+  }
+);
 
 router.post("/update", auth.checkAuth, async (req, res) => {
   try {

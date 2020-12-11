@@ -239,19 +239,13 @@ router.get("/upload", auth.checkAuthNext, async (req, res) => {
   }
 });
 
-router.post('/upload-image', multer(multerConf).single('file-upload'), async (req, res) => {
+router.post('/upload-image', multer(multerConf).single('photo'), async (req, res) => {
   if (req.file) {
     req.body.photo = req.file.filename;
-    // cloudinary.uploader.upload("./public/img/uploads/" + req.file.filename,
-    //   function (error, result) {
-    //     this.result = result
-    //     res.json(result)
-    //   });
     const result = await cloudinary.uploader.upload("./public/img/uploads/" + req.file.filename)
     req.session.url = result.url
     res.redirect("/form-upload");
     console.log(req.session.url)
-    //oper param done
 
   }
 });
