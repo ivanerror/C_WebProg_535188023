@@ -1,5 +1,7 @@
 const express = require("express");
 const request = require("request");
+const cloudinary = require("../cloudinaryConfig");
+const upload = require("../multerConfig");
 const router = express.Router();
 const Image = require("../models/image");
 const Category = require("../models/category");
@@ -7,7 +9,11 @@ const auth = require("./auth");
 const user = require("../models/user");
 const imageAndUser = require("../models/imageAndUser");
 const { Mongoose } = require("mongoose");
-const moment = require('moment')
+const multer = require("multer");
+const { route } = require("./insframeAPI");
+const moment = require("moment");
+const http = require('http');
+const fs = require('fs');
 
 router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
   try {
@@ -153,13 +159,16 @@ router.get("/category/:categoryName", auth.checkAuthNext, async (req, res) => {
 });
 
 router.get("/photo/:photoName", auth.checkAuthNext, async (req, res) => {
+  // get id dari parameter
   const photoName = req.params.photoName;
   try {
+    //nambah view + cari foto
     photoData = await Image.findByIdAndUpdate(photoName, {
-      $inc : {
-        views : 1
-      }
+      $inc: {
+        views: 1,
+      },
     });
+    // ini user yg punya foto itu
     data = await user.findOne({
       _id: {
         $in: photoData.author,
@@ -180,7 +189,7 @@ router.get("/photo/:photoName", auth.checkAuthNext, async (req, res) => {
       logged: true,
       User: User,
       btnCollection: btnCollection,
-      moment : moment
+      moment: moment,
     });
   } else {
     res.render("pop-up", {
@@ -189,8 +198,7 @@ router.get("/photo/:photoName", auth.checkAuthNext, async (req, res) => {
       logged: false,
       User: {},
       btnCollection: false,
-      moment : moment
-
+      moment: moment,
     });
   }
 });
@@ -205,8 +213,147 @@ router.get("/form-data", async (req, res) => {
   });
 });
 
+router.get("/upload", auth.checkAuthNext, async (req, res) => {
+  try {
+    if (req.isAuthenticated) {
+      User = await auth.getUser(req.user.id);
+      res.render("upload-form", {
+        logged: true,
+        User: User,
+      });
+    } else {
+      res.redirect("/404");
+    }
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
 // JSON UPLOADER
 // untuk upload upload gambar
+const multerConf = {
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, "./public/img/uploads");
+    },
+    filename: function (req, file, cb) {
+      const parts = file.mimetype.split("/")[1];
+      cb(null, file.fieldname + "-" + Date.now() + "." + parts);
+    },
+    fileFilter: function (req, file, next) {
+      if (!file) {
+        cb();
+      }
+      const image = file.mimetype.startsWith("image/");
+      if (image) {
+        cb({ message: "File Done" }, true);
+      } else {
+        cb({ message: "File type not supported" }, false);
+      }
+    },
+  }),
+};
+
+router.post(
+  "/upload-image",
+  multer(multerConf).single("photo"),
+  async (req, res) => {
+    if (req.file) {
+      req.body.photo = req.file.filename;
+      // cloudinary.uploader.upload("./public/img/uploads/" + req.file.filename,
+      //   function (error, result) {
+      //     this.result = result
+      //     res.json(result)
+      //   });
+      const result = await cloudinary.uploader.upload(
+        "./public/img/uploads/" + req.file.filename
+      );
+      req.session.url = result.url;
+      res.redirect("/form-upload");
+      console.log(req.session.url);
+      //oper param done
+    }
+  }
+);
+
+router.get("/form-upload", auth.checkAuthNext, async (req, res) => {
+  categoryData = await Category.find();
+  try {
+    if (req.isAuthenticated) {
+      User = await auth.getUser(req.user.id);
+      res.render("upload-form-image", {
+        categoryLists: categoryData,
+        uploadImage: req.session.url,
+        logged: true,
+        User: User,
+      });
+      console.log(req.session.url);
+      req.session.destroy();
+    } else {
+      res.redirect("/404");
+    }
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
+router.post("/confirm-upload", auth.checkAuthNext, async (req, res) => {
+  try {
+    if (req.isAuthenticated) {
+      const data = req.body;
+      const authorId = req.user.id;
+      const categoryId = [].concat(data.category);
+      const newCategory = await Category.find({
+        _id: {
+          $in: categoryId,
+        },
+      });
+      const categoryName = newCategory.map((category) => category.category);
+      const newUser = await user.findById(authorId, "username");
+      const searchQuery =
+        data.title +
+        " " +
+        data.description +
+        " " +
+        [].concat(categoryName).join(" ") +
+        " " +
+        newUser.username;
+      const newImageLists = new Image({
+        title: data.title,
+        source: data.source,
+        detail: {
+          description: data.description,
+          raw: {
+            megapixel: data.megapixel,
+            camera: data.camera,
+            iso: data.iso,
+            ss: data.ss,
+            aperture: data.aperture,
+          },
+        },
+        author: req.user.id,
+        searchQuery: searchQuery,
+        views: 0,
+      });
+
+      const imageLists = await newImageLists.save();
+      const selectedCategory = [].concat(data.category);
+
+      const categoryLists = await Category.updateMany(
+        {
+          _id: {
+            $in: selectedCategory,
+          },
+        },
+        { $addToSet: { images: imageLists._id } }
+      );
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+
+  res.redirect("/");
+});
 
 router.post("/form-data", async (req, res) => {
   const data = req.body;
