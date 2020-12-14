@@ -16,4 +16,8 @@
 - HomePage Tugas - Tugas landing page
 - Laporan Web Progamming
 
-LINK HOST https://insframe.000webhostapp.com/home.html
+LINK DEPLOY : https://insframephoto.herokuapp.com/
+LINK VIDEO :
+- DEMO VIDEO : https://youtu.be/vdsK2KncLZU
+
+UAS WEB PROGRAMMING 

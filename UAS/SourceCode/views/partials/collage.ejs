@@ -1,0 +1,61 @@
+<div class="container-fluid mt-5" style="margin-bottom: 50px;">
+    <div class="card-columns infinite-scroll">
+      <% for(var i=0; i<imageList.length; i++) { %>
+        <div class="img-content">
+            <div class="box">
+              <div class="imgBx">
+                <img
+                  src= "<%= imageList[i].source %>"
+                  alt=""
+                  P
+                  class="img-fluid mt-2 mb-2"
+                  data-toggle="modal"
+                  data-target="#myModal"
+                />
+              </div>
+              <div class="content d-flex align-items-end">
+              <a class="content-link" href="/photo/<%=imageList[i]._id%>"></a>
+                <div class="photo-item__photographer d-flex justify-content-between align-items-end">
+                  <a class="heart-icon"><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+                  <a class="link" href="/profile/photos/@<%= imageList[i].author.username%>">
+                    <div class="pic-author d-block text-center">
+                      <img class="photo-item__avatar" height="40" width="40" src="<%= imageList[i].author.img_profile %>" />
+                      <div class="author-name pt-2">@<%= imageList[i].author.username %></div>
+                    </div>
+                  </a>
+                  <a href="<%= imageList[i].source %>" class="icon" download="images"><i class="fas fa-download"></i></a>
+                </div>
+              </div>
+            </div> 
+          </div>  
+        <% } %>  
+    </div>
+  </div>
+
+  <script>
+    $(window).scroll(function () {
+    // End of the document reached?
+    // console.log($(document).height())
+    console.log($(this).scrollTop())
+    console.log($(document).height() - $(this).height())
+
+
+    if ($(document).height() - $(this).height() < $(this).scrollTop()+3) {
+      console.log("gas")
+
+        $.ajax({
+            type: "POST",
+            url: "/next",
+            contentType: "application/json; charset=utf-8",
+            data: '',
+            dataType: "json",
+            success: function (msg) {
+                console.log("gas")
+            },
+            error: function (req, status, error) {
+                alert("Error try again");
+            }
+        });
+    }
+}); 
+  </script>

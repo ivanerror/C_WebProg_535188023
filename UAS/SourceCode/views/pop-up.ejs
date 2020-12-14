@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="text-center p-2" style="height: 90vh">
+        <img
+          id="img-modal"
+          src="<%=photoSelect.source%>"
+          alt=""
+          style="max-width: 100%; max-height: 100%; vertical-align: middle"
+        />
+      </div>
+    </div>
+    <div class="col">
+      <div class="modal-top-button d-flex justify-content-center pb-4 pt-4">
+        <button
+          type="button"
+          class="btn btn-default btn-style"
+          style="background-color: white"
+        >
+          <i class="fas fa-heart" aria-hidden="true" style="color: grey"></i>
+        </button>
+        <% if (!btnCollection) { %>
+        <form action="/profile/savecollect" method="POST">
+          <button
+            type="submit"
+            class="btn btn-default btn-style ml-2"
+            style="background-color: white"
+            name="id"
+            value="<%= photoSelect._id %>"
+          >
+            Save to collection
+            <i class="fa fa-plus" aria-hidden="true" style="color: grey"></i>
+          </button>
+        </form>
+        <% } else { %>
+        <form action="/profile/deletecollect" method="POST">
+          <button
+            type="submit"
+            class="btn btn-default btn-style ml-2"
+            style="background-color: white"
+            name="id"
+            value="<%= photoSelect._id %>"
+          >
+            Delete from collection
+            <i class="fa fa-trash" aria-hidden="true" style="color: grey"></i>
+          </button>
+        </form>
+        <% } %>
+        <a href="<%=photoSelect.source%>" download>
+          <button
+            class="btn btn-default btn-style btn-background ml-2"
+            style="background-color: white"
+          >
+            Download
+            <i
+              class="fas fa-download"
+              aria-hidden="true"
+              style="color: grey"
+            ></i>
+          </button>
+        </a>
+      </div>
+
+      <div style="font-size: 10px">Author</div>
+      <a
+        class="link pic-author d-flex align-items-center mt-2"
+        href="/profile/@<%= uploader.username%>"
+      >
+        <img
+          class="photo-item__avatar"
+          height="45"
+          width="45"
+          src="<%=uploader.img_profile%>"
+        />
+        <div class="author-name ml-2" style="color: #222222">
+          @<%=uploader.username%>
+        </div>
+      </a>
+
+      <hr />
+
+      <div style="font-size: 10px">Photo Information</div>
+      <div class="mt-2">
+        <b><%=photoSelect.title%></b>
+      </div>
+      <div class="mt-2">
+        <p>Megapixel : <b><%=photoSelect.detail.raw.megapixel%></b></p>
+
+        <p>Camera : <b><%=photoSelect.detail.raw.camera%></b></p>
+
+        <p>iso : <b><%=photoSelect.detail.raw.iso%></b></p>
+
+        <p>ss : <b><%=photoSelect.detail.raw.ss%></b></p>
+
+        <p>aperture : <b><%=photoSelect.detail.raw.aperture%></b></p>
+
+        <span><%= photoSelect.views %>x views • <%= moment(photoSelect.createdAt).format( 'MMM DD , YYYY') %></span>
+      </div>
+      <hr />
+
+      <div style="font-size: 10px">License</div>
+      <div class="d-flex mt-2">
+        <i class="fa fa-check mr-2" aria-hidden="true"></i>
+        <div>Free to use.</div>
+      </div>
+      <div class="d-flex">
+        <i class="fa fa-check mr-2" aria-hidden="true"></i>
+        <div>No attribution required.</div>
+      </div>
+    </div>
+  </div>
+</div>
