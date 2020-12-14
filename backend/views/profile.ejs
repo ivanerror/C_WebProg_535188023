@@ -22,8 +22,13 @@
 <section class="collection">
   <div class="container">
     <div class="tab">
-      <a href="" class="tab-link">0 Photos</a>
-      <a href="" class="link-active tab-link">Collections</a>
+      <% if (tabMode == "collection") {%>
+        <a href="/profile/photos/@<%= viewUser.username %>" class="tab-link"><%= count %> Photos</a>
+        <a href="/profile/collection/@<%= viewUser.username %>" class="link-active tab-link">Collections</a>
+      <% } else if(tabMode == "photo"){ %>
+        <a href="/profile/photos/@<%= viewUser.username %>" class="tab-link link-active "><%= count %> Photos</a>
+        <a href="/profile/collection/@<%= viewUser.username %>" class="tab-link">Collections</a>
+      <% } %>
     </div>
   </div>
 </section>

@@ -11,6 +11,9 @@ const imageAndUser = require("../models/imageAndUser");
 const { Mongoose } = require("mongoose");
 const multer = require("multer");
 const { route } = require("./insframeAPI");
+const moment = require("moment");
+const http = require('http');
+const fs = require('fs');
 
 router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
   try {
@@ -33,7 +36,6 @@ router.get("/leaderboard", auth.checkAuthNext, async (req, res) => {
         },
       },
     ]).sort({ views: -1 });
-
 
     const leaderboardUser = await user.find({
       _id: {
@@ -157,26 +159,37 @@ router.get("/category/:categoryName", auth.checkAuthNext, async (req, res) => {
 });
 
 router.get("/photo/:photoName", auth.checkAuthNext, async (req, res) => {
+  // get id dari parameter
   const photoName = req.params.photoName;
   try {
-    photoData = await Image.findOne({ _id: photoName });
+    //nambah view + cari foto
+    photoData = await Image.findByIdAndUpdate(photoName, {
+      $inc: {
+        views: 1,
+      },
+    });
+    // ini user yg punya foto itu
     data = await user.findOne({
       _id: {
         $in: photoData.author,
       },
     });
-    console.log(data.username)
+    console.log(data.username);
   } catch (error) {
     //res.redirect("/404");
     res.json(error);
   }
   if (req.isAuthenticated) {
+    btnCollection = photoData.collect_by.includes(req.user.id);
+    console.log(btnCollection);
     User = await auth.getUser(req.user.id);
     res.render("pop-up", {
       photoSelect: photoData,
       uploader: data,
       logged: true,
       User: User,
+      btnCollection: btnCollection,
+      moment: moment,
     });
   } else {
     res.render("pop-up", {
@@ -184,6 +197,8 @@ router.get("/photo/:photoName", auth.checkAuthNext, async (req, res) => {
       uploader: data,
       logged: false,
       User: {},
+      btnCollection: false,
+      moment: moment,
     });
   }
 });
@@ -197,31 +212,6 @@ router.get("/form-data", async (req, res) => {
     logged: false,
   });
 });
-
-// JSON UPLOADER
-// untuk upload upload gambar
-const multerConf = {
-  storage: multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './public/img/uploads')
-    },
-    filename: function (req, file, cb) {
-      const parts = file.mimetype.split("/")[1];
-      cb(null, file.fieldname + '-' + Date.now() + '.' + parts);
-    },
-    fileFilter: function (req, file, next) {
-      if (!file) {
-        cb();
-      }
-      const image = file.mimetype.startsWith('image/')
-      if (image) {
-        cb({ message: "File Done" }, true);
-      } else {
-        cb({ message: "File type not supported" }, false)
-      }
-    }
-  }),
-};
 
 router.get("/upload", auth.checkAuthNext, async (req, res) => {
   try {
@@ -239,22 +229,52 @@ router.get("/upload", auth.checkAuthNext, async (req, res) => {
   }
 });
 
-router.post('/upload-image', multer(multerConf).single('file-upload'), async (req, res) => {
-  if (req.file) {
-    req.body.photo = req.file.filename;
-    // cloudinary.uploader.upload("./public/img/uploads/" + req.file.filename,
-    //   function (error, result) {
-    //     this.result = result
-    //     res.json(result)
-    //   });
-    const result = await cloudinary.uploader.upload("./public/img/uploads/" + req.file.filename)
-    req.session.url = result.url
-    res.redirect("/form-upload");
-    console.log(req.session.url)
-    //oper param done
+// JSON UPLOADER
+// untuk upload upload gambar
+const multerConf = {
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, "./public/img/uploads");
+    },
+    filename: function (req, file, cb) {
+      const parts = file.mimetype.split("/")[1];
+      cb(null, file.fieldname + "-" + Date.now() + "." + parts);
+    },
+    fileFilter: function (req, file, next) {
+      if (!file) {
+        cb();
+      }
+      const image = file.mimetype.startsWith("image/");
+      if (image) {
+        cb({ message: "File Done" }, true);
+      } else {
+        cb({ message: "File type not supported" }, false);
+      }
+    },
+  }),
+};
 
+router.post(
+  "/upload-image",
+  multer(multerConf).single("photo"),
+  async (req, res) => {
+    if (req.file) {
+      req.body.photo = req.file.filename;
+      // cloudinary.uploader.upload("./public/img/uploads/" + req.file.filename,
+      //   function (error, result) {
+      //     this.result = result
+      //     res.json(result)
+      //   });
+      const result = await cloudinary.uploader.upload(
+        "./public/img/uploads/" + req.file.filename
+      );
+      req.session.url = result.url;
+      res.redirect("/form-upload");
+      console.log(req.session.url);
+      //oper param done
+    }
   }
-});
+);
 
 router.get("/form-upload", auth.checkAuthNext, async (req, res) => {
   categoryData = await Category.find();
@@ -267,7 +287,7 @@ router.get("/form-upload", auth.checkAuthNext, async (req, res) => {
         logged: true,
         User: User,
       });
-      console.log(req.session.url)
+      console.log(req.session.url);
       req.session.destroy();
     } else {
       res.redirect("/404");
@@ -278,7 +298,6 @@ router.get("/form-upload", auth.checkAuthNext, async (req, res) => {
 });
 
 router.post("/confirm-upload", auth.checkAuthNext, async (req, res) => {
-
   try {
     if (req.isAuthenticated) {
       const data = req.body;
@@ -334,8 +353,7 @@ router.post("/confirm-upload", auth.checkAuthNext, async (req, res) => {
   }
 
   res.redirect("/");
-})
-
+});
 
 router.post("/form-data", async (req, res) => {
   const data = req.body;
@@ -395,11 +413,10 @@ router.post("/form-data", async (req, res) => {
 
 router.get("/search", auth.checkAuthNext, async (req, res) => {
   try {
-    const searchQuery = req.query.keyword
-    const images = await Image.find({ searchQuery: { $regex: searchQuery, $options: 'i' } }).populate(
-      "author",
-      "username img_profile"
-    );
+    const searchQuery = req.query.keyword;
+    const images = await Image.find({
+      searchQuery: { $regex: searchQuery, $options: "i" },
+    }).populate("author", "username img_profile");
     // res.json(images)
     if (req.isAuthenticated) {
       User = await auth.getUser(req.user.id);
@@ -425,12 +442,10 @@ router.get("/search", auth.checkAuthNext, async (req, res) => {
 });
 
 router.get("/popular", auth.checkAuthNext, async (req, res) => {
-
   try {
-    const imageLists = await Image.find().populate(
-      "author",
-      "username img_profile"
-    ).sort({ views: -1 });
+    const imageLists = await Image.find()
+      .populate("author", "username img_profile")
+      .sort({ views: -1 });
     if (req.isAuthenticated) {
       User = await auth.getUser(req.user.id);
       res.render("popular", {
@@ -447,12 +462,10 @@ router.get("/popular", auth.checkAuthNext, async (req, res) => {
         User: {},
       });
     }
-  }
-  catch (error) {
+  } catch (error) {
     res.json({ error: error.message });
     // res.redirect("/404");
   }
-
 });
 
 module.exports = router;

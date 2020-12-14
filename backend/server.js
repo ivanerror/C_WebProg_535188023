@@ -28,6 +28,8 @@ mongoose
 app.use(express.static(__dirname + '/public'));
 app.use('/sign',express.static(__dirname + '/public'));
 app.use('/profile',express.static(__dirname + '/public'));
+app.use('/profile/collection',express.static(__dirname + '/public'));
+app.use('/profile/photos',express.static(__dirname + '/public'));
 app.use('/category',express.static(__dirname + '/public'));
 app.use('/search',express.static(__dirname + '/public'));
 app.use('/photo',express.static(__dirname + '/public'));
@@ -41,6 +43,7 @@ app.use(session({secret: 'mySecret', resave: false, saveUninitialized: false}));
 //configure the options however you need them, obviously
 app.use(expressLayouts)
 app.use(cookieParser());
+
 app.set('layout', './layouts/layout')
 // app.set('views', './views')
 app.set('view engine', 'ejs')

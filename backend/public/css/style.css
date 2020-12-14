@@ -227,11 +227,6 @@ body {
   /* margin: 100px; */
 }
 
-.my-modal #img-modal {
-  max-height: 600px;
-  width: auto;
-  margin: auto auto;
-}
 
 .author-name {
   font-size: 14px;
@@ -251,13 +246,14 @@ body {
 }
 
 .modal-detail {
-  max-width: 700px;
+  max-width: 900px;
+  width: 600px;
 }
 
 @media only screen and (min-width: 1024px) {
   .my-modal {
     display: flex;
-    width: 1200px;
+    /* width: 1200px; */
   }
 
   .btn-style {
@@ -286,3 +282,8 @@ body {
   text-decoration: none;
   color: white;
 }
+
+/* .img-modal {
+  max-height: 100vh;
+  width: auto;
+} */
