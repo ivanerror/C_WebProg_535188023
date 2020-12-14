@@ -17,7 +17,7 @@
               <a class="content-link" href="/photo/<%=imageList[i]._id%>"></a>
                 <div class="photo-item__photographer d-flex justify-content-between align-items-end">
                   <a class="heart-icon"><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
-                  <a class="link" href="/profile/@<%= imageList[i].author.username%>">
+                  <a class="link" href="/profile/photos/@<%= imageList[i].author.username%>">
                     <div class="pic-author d-block text-center">
                       <img class="photo-item__avatar" height="40" width="40" src="<%= imageList[i].author.img_profile %>" />
                       <div class="author-name pt-2">@<%= imageList[i].author.username %></div>

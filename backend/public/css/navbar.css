@@ -36,6 +36,10 @@ body {
   text-decoration: none;
 }
 
+.navbar .dropdown-item {
+  color: black;
+}
+
 .iflogo img {
   max-block-size: 35px;
   padding-right: 10px;
