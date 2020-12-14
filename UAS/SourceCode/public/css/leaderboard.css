@@ -1,0 +1,13 @@
+.image-container img{
+    height: 150px; 
+    width: 100px;
+    object-fit: cover;
+}
+
+.profile-image img{
+    vertical-align: middle;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}

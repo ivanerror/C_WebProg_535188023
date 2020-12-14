@@ -1,0 +1,17 @@
+<div class="banner-area d-flex justify-content-center">
+    <div class="banner-content m-4" id="">
+      <h1>Explore millions of free stock photos, powered by unique creators.</h1>
+        <form action="/search" method="GET" class="search-banner d-flex align-items-center">
+          <input type="text" name="keyword" class="search-field" placeholder="Search for free photos" />
+          <button style="background: transparent; outline: none;" type="submit" class="icon ml-2"><i class="fas fa-search"></i></button>
+        </form>
+      <div class="category-link mt-2">
+        <span>Suggested : </span>
+        <% for(var i=0; i<categories.length; i++) { %>
+        <a class="banner-link" href="/category/<%= categories[i].category %>"><%= categories[i].category %> ,</a>
+        <% } %>
+        <a class="banner-link" href="/category">More...</a>
+
+      </div>
+    </div>
+  </div>

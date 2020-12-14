@@ -1,0 +1,59 @@
+.profile-section .profile-header {
+  padding: 70px 0;
+  display: block;
+}
+
+.profile-section img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-section .profile-header div {
+  padding: 10px 20px;
+}
+
+.profile-section h1 {
+  font-size: 24px;
+}
+
+.profile-section .btn {
+  background: rgba(41, 161, 156, 1);
+  color: whitesmoke;
+  font-size: 14px;
+}
+
+.collection {
+  padding-top: 2rem;
+}
+
+.collection .tab-link {
+  display: inline-flex;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  margin-top: 0;
+  letter-spacing: 0.4px;
+  margin-bottom: 0;
+  align-items: center;
+  padding: 1.25rem;
+  color: black;
+  text-decoration: none;
+  transition: 0.2s;
+  position: relative;
+}
+
+.collection .tab-link:hover {
+  color: rgba(41, 161, 156, 1);
+  text-decoration: none;
+}
+
+.collection .tab {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+}
+
+.navbar .profile-picture img {
+  width: 30px;
+  border-radius: 50%;
+}

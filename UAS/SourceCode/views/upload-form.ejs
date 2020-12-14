@@ -1,0 +1,31 @@
+<div class="container">
+  <h3 class="container-text">Upload Photo</h3>
+  <ul class="upload-info">
+    <li>Your uploads will be distributed for free under the insframe license.</li>
+    <li>To increase the chance of being featured, please ensure that your submissions meet</li>
+    <li>
+      We'll review your submission. If it gets selected, you will receive an email notification and your content
+      will be featured in our search.
+    </li>
+  </ul>
+
+  <div>
+    <div class="d-flex justify-content-center">
+    <form action="/upload-image" method="post" enctype="multipart/form-data">
+      <label for="photo">Photo</label>
+      <input type="file" name="photo" id="photo">
+      <input type="submit" value="upload">
+    </form>
+  </div>
+
+    <!--<div class="d-flex justify-content-center">
+      <div class="form-input d-flex align-items-center justify-content-center">
+        <label id="file-upload-container" for="file-upload">Upload Image</label>
+        <input type="file" id="file-upload" accept="image/*" style="display: none;" />
+      </div>
+    </div>-->
+  </div>
+
+</div>
+<script src="js/upload.js"></script>
+<link rel="stylesheet" href="css/upload.css" />

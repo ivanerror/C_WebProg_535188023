@@ -1,0 +1,180 @@
+@font-face {
+  font-family: JosefinSans;
+  src: url(../font/JosefinSans-Bold.ttf);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  /* padding: 0; */
+}
+
+body {
+  padding-top: 70px;
+}
+
+@media only screen and (max-width: 990px) {
+  body {
+    padding-top: 110px;
+  }
+}
+.navbar {
+  padding: 9px 25px;
+  background: #222831;
+  z-index: 5;
+}
+
+.body-padding {
+  padding: 8em;
+}
+
+.navbar li,
+.navbar a,
+.navbar button {
+  font-weight: 500;
+  font-size: 16px;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+.navbar .dropdown-item {
+  color: black;
+}
+
+.iflogo img {
+  max-block-size: 35px;
+  padding-right: 10px;
+}
+
+.navbar .profile-picture {
+  width:30px;
+  height:30px;
+  object-fit:cover;
+  border-radius: 50%;
+}
+
+.logo {
+  cursor: pointer;
+  font-family: JosefinSans;
+  font-size: 20px !important;
+  font-weight: 700;
+}
+
+.cta button {
+  padding: 9px 25px;
+  background-color: rgba(41, 161, 156, 1);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.cta button:hover {
+  background-color: rgba(41, 161, 156, 0.8);
+}
+
+.search-box {
+  display: flex;
+  background: white;
+  border-radius: 15px;
+  padding: 5px;
+  width: 100%;
+}
+
+.search-btn {
+  color: #29a19c;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: #393e46;
+  transition: 0.4s;
+}
+
+.search-btn:hover {
+  text-decoration: none;
+}
+
+.search-txt {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  color: transparent;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  padding-left: 10px;
+  color: black;
+  width: 100%;
+}
+
+/* placeholder color  */
+
+.search-txt::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #393e46;
+  opacity: 1;
+}
+
+.search-box:hover > .search-btn {
+  background: #222831;
+  color: #a3f7bf;
+}
+
+.wrap {
+  height: 200%;
+}
+
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+.banner-area .header {
+  color: rgb(34, 34, 34);
+}
+
+.banner-area {
+  height: 75vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url("../img/bg.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-area h1 {
+  max-width: 650px;
+  width: 100%;
+  z-index: 3;
+  display: block;
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.banner-area i {
+  font-size: 22px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-field {
+  height: 50px;
+  width: 700px;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+}
+
+.img-fluid {
+  width: 100%;
+}
